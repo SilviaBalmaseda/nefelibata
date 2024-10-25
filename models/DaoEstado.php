@@ -20,11 +20,19 @@ class DaoEstado
         return $result['statu'];
     }
 
+    // Seleccionar el último id.
+    public function maxId() 
+    {
+        $stmt = $this->db->query("SELECT MAX(IdUsuario) AS last_id FROM estado");
+        return $stmt->fetchColumn();
+    }
+
     // Inserta un nuevo estado.
     public function createEstado($nameGenre)
     {
-        $stmt = $this->db->prepare("INSERT INTO estado (Nombre) VALUES (?)");
-        return $stmt->execute([$nameGenre]);
+        $id = $this->maxId();
+        $stmt = $this->db->prepare("INSERT INTO estado (IdEstado, Nombre) VALUES (?, ?)");
+        return $stmt->execute([$id, $nameGenre]);
     }
 
     // Selecciona todos los datos de la tabla estado.
