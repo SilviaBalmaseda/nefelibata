@@ -347,7 +347,7 @@ class Controller
             // Llamar a iniciarSesion pasando los parámetros.
             $this->iniciarSesion($nameUser, $contra);
         } catch (Exception $e) {
-            echo json_encode(['success' => false, 'error' => 'Error interno del servidor.']);
+            echo json_encode(['success' => false, 'error' => 'Error interno del servidor. ERROR: '. $e->getMessage()]);
         }
     }
 
