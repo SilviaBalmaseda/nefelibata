@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // console.log("main.js cargado");
+  console.log("main.js cargado");
 
   // Obtener los formularios directamente.
   const fIniciarSesion = document.getElementById("fIniciarSesion");
