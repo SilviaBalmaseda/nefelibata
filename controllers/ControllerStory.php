@@ -141,7 +141,7 @@ class ControllerStory
                 $portada = null;
             }
             $tituloCap = (isset($_POST['tituloCap']) && !empty($_POST['tituloCap'])) ? trim($_POST['tituloCap']) : "1";
-            $sinopsis = (isset($_POST['sinopsis']) && !empty($_POST['sinopsis'])) ? trim($_POST['sinopsis']) : null;
+            $sinopsis = (isset($_POST['sinopsis']) && !empty($_POST['sinopsis'])) ? trim($_POST['sinopsis']) : '';
             $historia = trim($_POST['historia']);
             $genero = isset($_POST['genero']) ? $_POST['genero'] : [1]; // Género por defecto.
             $estado = isset($_POST['estado']) ? $_POST['estado'] : [1]; // Estado por defecto.
