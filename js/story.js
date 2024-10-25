@@ -403,8 +403,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((text) => {
               try {
                 const data = JSON.parse(text);
-
-                console.log(data);
                 if (data.success) {
                   resultMessage.textContent =
                     data.message || "Operación exitosa.";
@@ -420,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 } else {
                   resultMessage.textContent =
-                    data.message || "Error en la operación." + data.error;
+                    data.message || "Error en la operación.";
                   successModal.show();
                 }
               } catch (error) {
@@ -514,6 +512,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return response.json();
           })
           .then((data) => {
+            console.log(data);
             if (data.success) {
               resultMessage.textContent = data.message || "Operación exitosa.";
               successModal.show();
@@ -529,7 +528,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             } else {
               resultMessage.textContent =
-                data.message || "Error en la operación.";
+                data.message || "Error en la operación." + data.error;
               successModal.show();
             }
           })
