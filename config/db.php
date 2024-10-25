@@ -7,7 +7,8 @@
 
 // $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
-$host = 'mysql.zeabur.internal';
+// $host = 'mysql.zeabur.internal';
+$host = 'fra1.clusters.zeabur.com'; 
 $db = 'nefelibata';
 $user = 'root';
 $pass = 'Nir0hVtSnHbQ13974L65RCceMWO8K2dA';
