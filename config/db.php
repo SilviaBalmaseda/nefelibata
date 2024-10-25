@@ -1,11 +1,19 @@
 <?php
-$host = 'localhost';
+// $host = 'localhost';
+// $db = 'nefelibata';
+// $user = 'root';
+// $pass = '';
+// $charset = 'utf8mb4';
+
+// $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$host = 'mysql.zeabur.internal';
 $db = 'nefelibata';
 $user = 'root';
-$pass = '';
+$pass = 'Nir0hVtSnHbQ13974L65RCceMWO8K2dA';
 $charset = 'utf8mb4';
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$dsn = "mysql:host=$host;port=32168;dbname=$db;charset=$charset"; 
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
