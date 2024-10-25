@@ -23,7 +23,7 @@ class DaoEstado
     // Seleccionar el último id.
     public function maxId() 
     {
-        $stmt = $this->db->query("SELECT MAX(IdUsuario) AS last_id FROM estado");
+        $stmt = $this->db->query("SELECT MAX(IdEstado) AS last_id FROM estado");
         return $stmt->fetchColumn();
     }
 
