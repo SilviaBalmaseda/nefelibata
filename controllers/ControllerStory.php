@@ -153,14 +153,14 @@ class ControllerStory
 
             // Se asignan los generos a la historia.
             foreach ($genero as $gen) {
-                $this->daoGenero->asignarGeneroHistoria($historiaId, $gen);
+                $this->daoHistoria_genero->asignarGeneroHistoria($historiaId, $gen);
             }
 
             // Si ha seleccionado varios generos y el 'Ninguno', se elimina el 'Ninguno'.
             if (count($genero) > 1) {
                 // Si hay más géneros y han seleccionado 'Ninguno', se elimina.
                 if (in_array(1, $genero)) { 
-                    $this->daoGenero->desasignarGeneroHistoria($historiaId, 1);
+                    $this->daoHistoria_genero->desasignarGeneroHistoria($historiaId, 1);
                 }
             }
 
@@ -217,20 +217,20 @@ class ControllerStory
             // Se asignan los generos a la historia.
             foreach ($genero as $gen) {
                 if ($this->daoHistoria_genero->checkHistoriaGenero($idHistoria, $gen) === 0) {
-                    $this->daoGenero->asignarGeneroHistoria($idHistoria, $gen);
+                    $this->daoHistoria_genero->asignarGeneroHistoria($idHistoria, $gen);
                 }
             }
 
             // Si ha seleccionado varios generos y el 'Ninguno', se elimina el 'Ninguno'.
             if (count($genero) > 1) {
                 if (in_array(1, $genero)) {
-                    $this->daoGenero->desasignarGeneroHistoria($idHistoria, 1);
+                    $this->daoHistoria_genero->desasignarGeneroHistoria($idHistoria, 1);
                 }
             }
 
             // Se asigna el estado a la historia.
             if ($this->daoHistoria_estado->checkHistoriaEstado($idHistoria, $estado) !== 1) {
-                $this->daoEstado->asignarEstadoHistoria($idHistoria, $estado);
+                $this->daoHistoria_estado->asignarEstadoHistoria($idHistoria, $estado);
             }
             
             $this->pdo->commit();
