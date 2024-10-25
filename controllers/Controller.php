@@ -342,8 +342,7 @@ class Controller
 
         try {
             // Si no hay errores, proceder con el registro.
-            $id = $this->daoUsuario->maxId() + 1;
-            $this->daoUsuario->createUser($id, $nameUser, $clave, $email);
+            $this->daoUsuario->createUser($nameUser, $clave, $email);
 
             // Llamar a iniciarSesion pasando los parámetros.
             $this->iniciarSesion($nameUser, $contra);
