@@ -29,11 +29,19 @@ class DaoCapitulo
         return $result['NumCapitulo'];
     }
 
+    // Seleccionar el último id.
+    public function maxId() 
+    {
+        $stmt = $this->db->query("SELECT MAX(IdCapitulo) AS last_id FROM capitulo");
+        return $stmt->fetchColumn();
+    }
+
     // Inserta un nuevo capítulo.
     public function createCapitulo($historiaId, $numCapitulo, $tituloCap, $historia)
     {
-        $stmt = $this->db->prepare("INSERT INTO capitulo (HistoriaId, NumCapitulo, TituloCap, Historia) VALUES (?, ?, ?, ?)");
-        return $stmt->execute([$historiaId, $numCapitulo, $tituloCap, $historia]);
+        $id = $this->maxId();
+        $stmt = $this->db->prepare("INSERT INTO capitulo (IdCapitulo, HistoriaId, NumCapitulo, TituloCap, Historia) VALUES (?, ?, ?, ?, ?)");
+        return $stmt->execute([$id, $historiaId, $numCapitulo, $tituloCap, $historia]);
     }
 
     // Devuelve los datos de los capítulos con el id de la historia pasado.
