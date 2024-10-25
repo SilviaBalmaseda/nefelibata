@@ -20,11 +20,19 @@ class DaoGenero
         return $result['genre'];
     }
 
+    // Seleccionar el último id.
+    public function maxId() 
+    {
+        $stmt = $this->db->query("SELECT MAX(IdGenero) AS last_id FROM genero");
+        return $stmt->fetchColumn();
+    }
+
     // Crear un nuevo género.
     public function createGenero($nameGenre)
     {
-        $stmt = $this->db->prepare("INSERT INTO genero (Nombre) VALUES (?)");
-        return $stmt->execute([$nameGenre]);
+        $id->$this->maxId();
+        $stmt = $this->db->prepare("INSERT INTO genero (IdGenero, Nombre) VALUES (?, ?)");
+        return $stmt->execute([$id, $nameGenre]);
     }
 
     // Seleccionar todos los datos de la tabla genero.
