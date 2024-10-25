@@ -19,8 +19,9 @@ class DaoUsuario
     }
 
     // Insertar un nuevo usuario.
-    public function createUser($id, $nameUser, $clave, $email)
+    public function createUser($nameUser, $clave, $email)
     {
+        $id = $this->maxId();
         $stmt = $this->db->prepare("INSERT INTO usuario (IdUsuario, Nombre, Clave, Email) VALUES (?, ?, ?, ?)");
         return $stmt->execute([$id, $nameUser, $clave, $email]);
     }
