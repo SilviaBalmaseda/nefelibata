@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: rgb(0,74,173);
+    background: radial-gradient(circle, rgba(0,74,173,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+footer {
+    margin-top: auto;
+    background: rgb(0,0,42);
+    background: radial-gradient(circle, rgba(0,0,42,1) 0%, rgba(0,0,28,1) 100%);
+}
+
+.enlaceFooter{
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.container{
+    margin: 1em auto;
+}
+
+.barraGenero {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Para los tamaños de los iconos */
+.bi-dash {
+    font-size: 1.05em;
+}
+
+.tamIcon {
+    font-size: 2em;
+}
+
+/* Para las imágenes */
+.peque {
+    width: 3em;
+    height: 3em;
+}
+
+.card img {
+    width: 100%;
+    height: 12.5em; 
+    object-fit: contain; /* La imagen se ajustará para que se vea completa*/
+}
+
+.textCenter {
+    text-align: center;
+}
+
+/* Para los formularios del Admin */
+.formu {
+    font-size: 1.25em;
+    width: 70%;
+    margin: 0.50em auto;
+}
+
+.formuLabel {
+    font-size: 0.5em;
+}
+
+/* Crear Historia para el select multiple */
+.genSelect {
+    height: auto !important;
+    min-height: 10em !important; 
+}
+
+/* Color/estilos de los botones */
+.btnColor {
+    background-color: #7fb1f4;
+}
+
+.btnDelete {
+    color: white;
+    background-color: #fe0000;
+}
+
+.btnAdmin {
+    font-style: normal !important;
+}
+
+/* Primer section del Admin */
+#mainArea {
+    font-size: 1.55em;
+    font-weight: bold;
+    margin: 1em;
+}
+
+/* Segundo div de Crear Historia(despues del container) */
+#formCreateH {
+    margin: 1em auto;
+}
+
+/* Para los diferentes formularios de Crear Historia */
+#formMainStory {
+    display: grid;
+    margin: 1em auto;
+}
+
+/* Para los mensajes de error de los formularios */
+.error-message {
+    color: red;
+    font-size: 1rem;
+    margin-top: 0.30rem;
+}
+
+.styleInput {
+    border: 0.063em solid #7fb1f4;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+/* Estilo para borde rojo (error) */
+.input-error {
+    border-color: red !important;
+}
+
+/* Estilo para borde verde (correcto) */
+.input-success {
+    border-color: green !important;
+}
+
+/* Estilos MODAL */
+.modal-header {
+    background: rgb(0,74,173);
+    background: radial-gradient(circle, rgba(0,74,173,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.modal-body {
+    padding: 1.25em;
+    line-height: 1.5;
+}
+
+.modal-footer {
+    background: rgb(0,0,42);
+    background: radial-gradient(circle, rgba(0,0,42,1) 0%, rgb(0, 0, 28) 100%);
+}
+
+#sinopsisContent {
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+#estadoContent,
+#generoContent {
+    font-weight: bold;
+}
+
+.modal-body hr {
+    height: 0.5em;
+    background: rgb(0,0,42);
+}
+
+/* Estilos para leer historia */
+
+body.page-body {
+    background-color: #F3F3F3; 
+    font-family: 'Merriweather', serif;
+}
+
+.chapter-select-btn {
+    padding: 0.625em 0.938em;
+    font-size: 1rem;
+    max-width: 15.625em; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: inline-block; 
+    vertical-align: middle;
+}
+
+.story-container {
+    background-color: white;
+    border-radius: 0.75em;
+    padding: 1.25em;
+    border-left: 0.4em solid #2c3e50; 
+    max-width: 55em;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: stretch; 
+}
+
+.chapter-title {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.875em;
+    font-size: 2rem;
+}
+
+.story-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.btn-nav {
+    margin: 0.625em;
+    font-size: 1.2rem;
+    border-radius: 3.125em;
+    padding: 0.625em 1.25em;
+}
+
+.story-image {
+    width: 9.375em; 
+    height: auto;
+    border-radius: 0.625em; 
+    display: inline-block;
+}
+
+.chapter-dropdown {
+    margin-bottom: 1.25em;
+}
+
+.maxAncho {
+    white-space: normal;  
+    word-wrap: normal;    
+    overflow-wrap: break-word;  
+    max-width: 100%;  
+}
+
+.maxAnchoBtn {
+    max-width: 62.5em;
+    margin: 0 auto;
+}
+
+.styleTitle {    
+    font-size: 2.5rem;  
+    line-height: 1.2; 
+}
+
+.notVisible {
+    display: none;
+}
+
+.tamImg {
+    max-width: 12.5em;
+}
