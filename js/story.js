@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
             })
               .then((response) => response.json()) // Parseamos directamente el JSON
               .then((data) => {
+                console.log(data);
                 if (data.success) {
-                  console.log(data);
                   resultMessage.textContent =
                     data.message || "Operación exitosa.";
                   successModal.show();
