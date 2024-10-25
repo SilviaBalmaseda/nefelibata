@@ -138,7 +138,7 @@ class ControllerStory
                 $conte = file_get_contents($archivoImag);
                 $portada = base64_encode($conte);
             } else {
-                $portada = null;
+                $portada = '';
             }
             $tituloCap = (isset($_POST['tituloCap']) && !empty($_POST['tituloCap'])) ? trim($_POST['tituloCap']) : "1";
             $sinopsis = (isset($_POST['sinopsis']) && !empty($_POST['sinopsis'])) ? trim($_POST['sinopsis']) : '';
@@ -196,14 +196,14 @@ class ControllerStory
                 $conte = file_get_contents($archivoImag);
                 $portada = base64_encode($conte);
             } else {
-                $portada = null;
+                $portada = '';
             }
-            $sinopsis = (isset($_POST['sinopsis']) && !empty($_POST['sinopsis'])) ? trim($_POST['sinopsis']) : null;
+            $sinopsis = (isset($_POST['sinopsis']) && !empty($_POST['sinopsis'])) ? trim($_POST['sinopsis']) : '';
             $genero = isset($_POST['genero']) ? $_POST['genero'] : [1]; // Género por defecto.
             $estado = isset($_POST['estado']) ? $_POST['estado'] : [1]; // Estado por defecto.
 
             // Actualizar datos de la historia.
-            if ($portada !== null) {
+            if ($portada !== '') {
                 $this->daoHistoria->updateStory($titulo, $sinopsis, $portada, $idHistoria);
             } else {
                 $this->daoHistoria->updateStoryNoImage($titulo, $sinopsis, $idHistoria);
