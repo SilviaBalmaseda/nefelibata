@@ -199,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         if (data.success) {
           if (data.redirect) {
             // Redirigir si hay una URL de redirección.
