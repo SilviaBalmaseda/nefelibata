@@ -11,11 +11,18 @@ class DaoUsuario
         $this->db = $db;
     }
 
-    // Insertar un nuevo usuario.
-    public function createUser($nameUser, $clave, $email)
+    // Seleccionar el último id.
+    public function maxId() 
     {
-        $stmt = $this->db->prepare("INSERT INTO usuario (Nombre, Clave, Email) VALUES (?, ?, ?)");
-        return $stmt->execute([$nameUser, $clave, $email]);
+        $stmt = $this->db->query("SELECT MAX(IdUsuario) AS last_id FROM usuario");
+        return $stmt->fetchColumn();
+    }
+
+    // Insertar un nuevo usuario.
+    public function createUser($id, $nameUser, $clave, $email)
+    {
+        $stmt = $this->db->prepare("INSERT INTO usuario (IdUsuario, Nombre, Clave, Email) VALUES (?, ?, ?, ?)");
+        return $stmt->execute([$id, $nameUser, $clave, $email]);
     }
 
     // Devolver el número total que tengan el nombre y la clave igual a los pasados.
