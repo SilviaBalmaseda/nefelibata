@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // console.log("story.js cargado");
+  console.log("story.js cargado");
 
   // Obtener los formularios directamente.
   const fCreateStory = document.getElementById("fCreateStory");
@@ -58,7 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
               method: "POST",
               body: formData,
             })
-              .then((response) => response.json()) // Parseamos directamente el JSON
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Error en la respuesta del servidor");
+                }
+                console.log(response.text());
+                return response.json();
+              })
+              // .then((response) => response.json()) // Parseamos directamente el JSON
               .then((data) => {
                 console.log(data);
                 if (data.success) {
