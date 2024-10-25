@@ -29,12 +29,20 @@ class DaoHistoria
         return $result['total'];
     }
 
+    // Seleccionar el último id.
+    public function maxId() 
+    {
+        $stmt = $this->db->query("SELECT MAX(IdHistoria) AS last_id FROM historia");
+        return $stmt->fetchColumn();
+    }
+
     // Crear Historia.
     public function createStory($titulo, $autor, $sinopsis, $imagen)
     {
-        $stmt = $this->db->prepare("INSERT INTO historia (Titulo, UsuarioId, Sinopsis, Imagen) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$titulo, $autor, $sinopsis, $imagen]);
-        return $this->db->lastInsertId(); // Devuelve el ID de la historia creada.
+        $id = $this->maxId();
+        $stmt = $this->db->prepare("INSERT INTO historia (IdHistoria, Titulo, UsuarioId, Sinopsis, Imagen) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$id, $titulo, $autor, $sinopsis, $imagen]);
+        return $id; // Devuelve el ID de la historia creada.
     }
 
     // Selecciona algunos datos de todas las historias.
