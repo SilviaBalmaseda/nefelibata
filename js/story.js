@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
               .then((response) => response.json()) // Parseamos directamente el JSON
               .then((data) => {
                 if (data.success) {
+                  console.log(data);
                   resultMessage.textContent =
                     data.message || "Operación exitosa.";
                   successModal.show();
@@ -74,8 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
                       }
                     });
                 } else {
+                  console.log(data.error);
                   resultMessage.textContent =
-                    data.message || "Error en la operación." + data.error;
+                    data.message || "Error en la operación.";
                   successModal.show();
                 }
               })
