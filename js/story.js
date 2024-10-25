@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const fDeleteStory = document.getElementById("fDeleteStory");
 
   const confirmModal = new bootstrap.Modal(
-    document.getElementById("confirmModal")
+    document.getElementById("confirmModal")  
   );
   const successModal = new bootstrap.Modal(
     document.getElementById("successModal")
@@ -58,16 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
               method: "POST",
               body: formData,
             })
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error("Error en la respuesta del servidor");
-                }
-                console.log(response.text());
-                return response.json();
-              })
-              // .then((response) => response.json()) // Parseamos directamente el JSON
+              .then((response) => response.json()) // Parseamos directamente el JSON
               .then((data) => {
-                console.log(data);
                 if (data.success) {
                   resultMessage.textContent =
                     data.message || "Operación exitosa.";
@@ -82,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
                       }
                     });
                 } else {
-                  console.log(data.error);
                   resultMessage.textContent =
                     data.message || "Error en la operación.";
                   successModal.show();
@@ -413,6 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
               try {
                 const data = JSON.parse(text);
 
+                console.log(data);
                 if (data.success) {
                   resultMessage.textContent =
                     data.message || "Operación exitosa.";
@@ -428,7 +420,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 } else {
                   resultMessage.textContent =
-                    data.message || "Error en la operación.";
+                    data.message || "Error en la operación." + data.error;
                   successModal.show();
                 }
               } catch (error) {
