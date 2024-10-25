@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 } else {
                   resultMessage.textContent =
-                    data.message || "Error en la operación.";
+                    data.message || "Error en la operación." + data.error;
                   successModal.show();
                 }
               })
