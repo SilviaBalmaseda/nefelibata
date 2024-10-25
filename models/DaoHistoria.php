@@ -40,8 +40,8 @@ class DaoHistoria
     public function createStory($titulo, $autor, $sinopsis, $imagen)
     {
         $id = $this->maxId();
-        $stmt = $this->db->prepare("INSERT INTO historia (IdHistoria, Titulo, UsuarioId, Sinopsis, Imagen) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$id, $titulo, $autor, $sinopsis, $imagen]);
+        $stmt = $this->db->prepare("INSERT INTO historia (IdHistoria, Titulo, UsuarioId, Sinopsis, Imagen, NumFavorito) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$id, $titulo, $autor, $sinopsis, $imagen, 0]);
         return $id; // Devuelve el ID de la historia creada.
     }
 
