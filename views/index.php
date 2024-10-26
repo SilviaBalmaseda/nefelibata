@@ -72,10 +72,12 @@ if (isset($_GET['nombre'])) {
         <?php if (!empty($storysCards)) : ?>
             <div id="CardsHistorias" class="row row-cols-1 row-cols-md-4 g-4 text-center container">
                 <?php if (!empty($storysCards)) : ?>
+                    <h5><b><?php echo htmlspecialchars($storysCards); ?></b></h5>
                     <?php foreach ($storysCards as $story) : ?>
                         <div class="col">
                             <div class="card h-100">
                                 <h5 class="card-title"><b><?php echo htmlspecialchars($story['Titulo']); ?></b></h5>
+                                <h5 class="card-title"><b><?php echo htmlspecialchars($totalHistorias); ?></b></h5>
                                 <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo htmlspecialchars($story['Nombre']); ?></h6>
 
                                 <?php if ($story['Imagen']) : ?>
