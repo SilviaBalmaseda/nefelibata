@@ -31,6 +31,12 @@ echo "<br>";
 foreach ($total as $s) {
     echo $s['IdHistoria'] . " - " . $s['UsuarioId'];
 }
+
+echo "<br>";
+
+foreach ($pr as $p) {
+    echo $p['Id'] . " - " . $p['Nombre'];
+}
     
 ?>
 
