@@ -23,7 +23,7 @@ if (isset($_GET['nombre'])) {
 }
 
 foreach ($todasLasHistorias as $story) {
-    echo $story;
+    echo $story['Id'];
 }
     
 ?>
@@ -80,11 +80,6 @@ foreach ($todasLasHistorias as $story) {
                         <div class="col">
                             <div class="card h-100">
                                 <h5 class="card-title"><b><?php echo htmlspecialchars($story['Titulo']); ?></b></h5>
-                                <?php
-                                echo "<pre>";
-                                print_r($totalPaginas);
-                                echo "</pre>";
-                                ?>
                                 <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo htmlspecialchars($story['Nombre']); ?></h6>
 
                                 <?php if ($story['Imagen']) : ?>
