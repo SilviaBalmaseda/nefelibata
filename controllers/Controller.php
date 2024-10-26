@@ -88,6 +88,9 @@ class Controller
             }
         }
 
+        echo $totalHistorias;
+        echo $todasLasHistorias;
+
         // Retornar los datos necesarios en la página(géneros, historias y paginación).
         return [
             'generos' => $generos,
