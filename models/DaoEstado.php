@@ -30,7 +30,7 @@ class DaoEstado
     // Inserta un nuevo estado.
     public function createEstado($nameGenre)
     {
-        $id = ($this->maxId()) ? $this->maxId() : 1;
+        $id = ($this->maxId()) ? $this->maxId() + 1 : 1;
         $stmt = $this->db->prepare("INSERT INTO estado (IdEstado, Nombre) VALUES (?, ?)");
         return $stmt->execute([$id, $nameGenre]);
     }
