@@ -22,6 +22,9 @@ if (isset($_GET['nombre'])) {
     $baseUrl .= 'nombre=' . urlencode($_GET['nombre']) . '&';
 }
 
+echo $totalHistorias;
+echo $todasLasHistorias;
+    
 ?>
 
 <head>
