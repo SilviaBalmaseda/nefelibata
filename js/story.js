@@ -502,11 +502,9 @@ document.addEventListener("DOMContentLoaded", function () {
           body: formData,
         })
           .then((response) => {
-            console.log(response.text());
             if (!response.ok) {
               throw new Error("Error en la respuesta del servidor");
             }
-            
             return response.json();
           })
           .then((data) => {
