@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("story.js cargado");
+  // console.log("story.js cargado");
 
   // Obtener los formularios directamente.
   const fCreateStory = document.getElementById("fCreateStory");
@@ -508,7 +508,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return response.json();
           })
           .then((data) => {
-            console.log(data);
             if (data.success) {
               resultMessage.textContent = data.message || "Operación exitosa.";
               successModal.show();
