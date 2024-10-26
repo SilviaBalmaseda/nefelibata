@@ -509,6 +509,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) {
               throw new Error("Error en la respuesta del servidor");
             }
+            console.log(response.text());
             return response.json();
           })
           .then((data) => {
