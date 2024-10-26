@@ -21,22 +21,6 @@ if (isset($_GET['searchStory'])) {
 if (isset($_GET['nombre'])) {
     $baseUrl .= 'nombre=' . urlencode($_GET['nombre']) . '&';
 }
-
-foreach ($todasLasHistorias as $story) {
-    echo $story['Id'];
-}
-
-echo "<br>";
-
-foreach ($total as $s) {
-    echo $s['IdHistoria'] . " - " . $s['UsuarioId'];
-}
-
-echo "<br>";
-
-foreach ($pr as $p) {
-    echo $p['Id'] . " - " . $p['Nombre'];
-}
     
 ?>
 
