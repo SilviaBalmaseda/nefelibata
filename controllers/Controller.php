@@ -119,6 +119,7 @@ class Controller
         $totalPaginas = $loadData['totalPaginas'];
         $paginaActual = $loadData['paginaActual'];
         $todasLasHistorias = $loadData['todasLasHistorias'];
+        $total = $this->daoHistoria->selecHistoria();
 
         include 'views/index.php';
     }
