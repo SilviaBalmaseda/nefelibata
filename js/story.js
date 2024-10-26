@@ -361,16 +361,12 @@ document.addEventListener("DOMContentLoaded", function () {
               throw new Error(data.errors || "Error inesperado del servidor");
             });
           }
-          // console.log(response.text());
-
           return response.json();
         })
         .then((data) => {
           if (data.success) {
             confirmModal.show();
           } else {
-            console.log(data);
-
             Object.keys(data.errors).forEach((error) => {
               const errorField = document.querySelector(`[id=${error}]`);
               if (errorField) {
@@ -506,10 +502,11 @@ document.addEventListener("DOMContentLoaded", function () {
           body: formData,
         })
           .then((response) => {
+            console.log(response.text());
             if (!response.ok) {
               throw new Error("Error en la respuesta del servidor");
             }
-            console.log(response.text());
+            
             return response.json();
           })
           .then((data) => {
