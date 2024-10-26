@@ -93,7 +93,8 @@ class Controller
             'generos' => $generos,
             'storysCards' => $storysCards,
             'totalPaginas' => $totalPaginas,
-            'paginaActual' => $paginaActual
+            'paginaActual' => $paginaActual.
+            'todasLasHistorias' => $todasLasHistorias
         ];
     }
 
