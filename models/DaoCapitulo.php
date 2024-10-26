@@ -39,7 +39,7 @@ class DaoCapitulo
     // Inserta un nuevo capítulo.
     public function createCapitulo($historiaId, $numCapitulo, $tituloCap, $historia)
     {
-        $id = ($this->maxId()) ? $this->maxId() : 1;
+        $id = ($this->maxId()) ? $this->maxId() + 1 : 1;
         $stmt = $this->db->prepare("INSERT INTO capitulo (IdCapitulo, HistoriaId, NumCapitulo, TituloCap, Historia) VALUES (?, ?, ?, ?, ?)");
         return $stmt->execute([$id, $historiaId, $numCapitulo, $tituloCap, $historia]);
     }
