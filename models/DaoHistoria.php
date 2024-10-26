@@ -84,6 +84,15 @@ class DaoHistoria
         return $stmt->fetchAll();
     }
 
+    public function prueba()
+    {
+        // $stmt = $this->db->query("SELECT IdHistoria, Titulo, UsuarioId FROM historia");
+        $stmt = $this->db->query("SELECT DISTINCT h.IdHistoria AS Id, h.Titulo, h.Sinopsis, h.Imagen, h.NumFavorito, u.Nombre 
+                                    FROM historia h
+                                    JOIN usuario u ON h.UsuarioId = u.IdUsuario");
+        return $stmt->fetchAll();
+    }
+
     // Selecciona algunos datos de la historia con ese Id.
     public function selecStoryId($idHistoria)
     {
