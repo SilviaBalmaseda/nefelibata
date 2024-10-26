@@ -76,7 +76,14 @@ class DaoCapitulo
         return $stmt->execute([$titleCap, $historia, $idCapitulo]);
     }
 
-    // Borrar capítulo con ese id pasado.
+    // Borrar capítulo con ese historiaId pasado.
+    public function deleteCap($historiaId)
+    {
+        $stmt = $this->db->prepare("DELETE FROM capitulo WHERE HistoriaId = ?");
+        return $stmt->execute([$historiaId]);
+    }
+
+    // Borrar capítulo con ese idCapitulo pasado.
     public function deleteCap($idCapitulo)
     {
         $stmt = $this->db->prepare("DELETE FROM capitulo WHERE IdCapitulo = ?");
