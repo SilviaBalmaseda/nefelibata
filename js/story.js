@@ -478,6 +478,8 @@ document.addEventListener("DOMContentLoaded", function () {
     clearValidationMessages(form);
     clearValidationStyles(form);
 
+    console.log("AAAAAAAAAAAAAAAAAAA");
+
     currentForm = form;
     formData = new FormData(form);
     if (idHistoria) formData.append("idHistoria", idHistoria);
