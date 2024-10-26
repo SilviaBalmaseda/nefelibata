@@ -25,6 +25,10 @@ if (isset($_GET['nombre'])) {
 foreach ($todasLasHistorias as $story) {
     echo $story['Id'];
 }
+
+foreach ($total as $s) {
+    echo $s['IdHistoria'] . " - " . $s['UsuarioId'];
+}
     
 ?>
 
