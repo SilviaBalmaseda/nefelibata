@@ -323,6 +323,7 @@ class ControllerAdmin
 
         foreach ($selecDelHistoria as $historiaId) {
             $this->daoHistoria->deleteHistoria($historiaId);
+            $this->daoCapitulo->deleteCapStoryId($historiaId);
         }
 
         // Si no hay errores.
