@@ -120,6 +120,7 @@ class Controller
         $paginaActual = $loadData['paginaActual'];
         $todasLasHistorias = $loadData['todasLasHistorias'];
         $total = $this->daoHistoria->selecHistoria();
+        $pr = $this->daoHistoria->prueba();
 
         include 'views/index.php';
     }
