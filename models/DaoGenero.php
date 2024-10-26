@@ -30,7 +30,7 @@ class DaoGenero
     // Crear un nuevo género.
     public function createGenero($nameGenre)
     {
-        $id = ($this->maxId()) ? $this->maxId() : 1;
+        $id = ($this->maxId()) ? $this->maxId() + 1 : 1;
         $stmt = $this->db->prepare("INSERT INTO genero (IdGenero, Nombre) VALUES (?, ?)");
         return $stmt->execute([$id, $nameGenre]);
     }
