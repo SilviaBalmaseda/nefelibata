@@ -93,8 +93,7 @@ class Controller
             'generos' => $generos,
             'storysCards' => $storysCards,
             'totalPaginas' => $totalPaginas,
-            'paginaActual' => $paginaActual,
-            'todasLasHistorias' => $todasLasHistorias
+            'paginaActual' => $paginaActual
         ];
     }
 
@@ -118,9 +117,6 @@ class Controller
         $storysCards = $loadData['storysCards'];
         $totalPaginas = $loadData['totalPaginas'];
         $paginaActual = $loadData['paginaActual'];
-        $todasLasHistorias = $loadData['todasLasHistorias'];
-        $total = $this->daoHistoria->selecHistoria();
-        $pr = $this->daoHistoria->prueba();
 
         include 'views/index.php';
     }
