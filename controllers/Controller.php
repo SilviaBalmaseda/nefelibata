@@ -118,6 +118,7 @@ class Controller
         $storysCards = $loadData['storysCards'];
         $totalPaginas = $loadData['totalPaginas'];
         $paginaActual = $loadData['paginaActual'];
+        $todasLasHistorias = $loadData['todasLasHistorias'];
 
         include 'views/index.php';
     }
