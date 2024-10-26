@@ -76,7 +76,11 @@ if (isset($_GET['nombre'])) {
                         <div class="col">
                             <div class="card h-100">
                                 <h5 class="card-title"><b><?php echo htmlspecialchars($story['Titulo']); ?></b></h5>
-                                <h5 class="card-title"><b><?php echo htmlspecialchars($totalHistorias); ?></b></h5>
+                                <?php
+                                echo "<pre>";
+                                print_r($totalHistorias);
+                                echo "</pre>";
+                                ?>
                                 <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo htmlspecialchars($story['Nombre']); ?></h6>
 
                                 <?php if ($story['Imagen']) : ?>
