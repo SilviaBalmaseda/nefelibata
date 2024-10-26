@@ -26,6 +26,8 @@ foreach ($todasLasHistorias as $story) {
     echo $story['Id'];
 }
 
+echo "<br>";
+
 foreach ($total as $s) {
     echo $s['IdHistoria'] . " - " . $s['UsuarioId'];
 }
