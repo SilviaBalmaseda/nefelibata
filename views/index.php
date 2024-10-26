@@ -99,6 +99,15 @@ if (isset($_GET['nombre'])) {
                                         <?php echo htmlspecialchars($story['NumFavorito']); ?>
                                     </button>
 
+                                    <button id="btnFavorito-<?php echo htmlspecialchars($story['Id']); ?>"
+                                        class="btn-favorito <?php echo ($user != null) ? '' : 'disabled'; ?>"
+                                        data-id="<?php echo $story['Id']; ?>"
+                                        data-es-favorito="<?php echo $story['esFavorito'] ? 'true' : 'false'; ?>">
+                                        <i class="bi <?php echo $story['esFavorito'] ? 'bi-star-fill' : 'bi-star'; ?>"></i>
+                                        <?php echo htmlspecialchars($story['NumFavorito']); ?>
+                                    </button>
+
+
                                     <button type="button" id="btnSinopsis-<?php echo htmlspecialchars($story['Id']); ?>"
                                         class="btn-sinopsis"
                                         data-id="<?php echo $story['Id']; ?>"
