@@ -22,8 +22,8 @@ if (isset($_GET['nombre'])) {
     $baseUrl .= 'nombre=' . urlencode($_GET['nombre']) . '&';
 }
 
-foreach ($storysCards as $story) {
-    echo $story['Titulo'];
+foreach ($todasLasHistorias as $story) {
+    echo $story;
 }
     
 ?>
