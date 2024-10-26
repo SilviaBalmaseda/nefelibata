@@ -72,7 +72,6 @@ if (isset($_GET['nombre'])) {
         <?php if (!empty($storysCards)) : ?>
             <div id="CardsHistorias" class="row row-cols-1 row-cols-md-4 g-4 text-center container">
                 <?php if (!empty($storysCards)) : ?>
-                    <h5><b><?php echo htmlspecialchars($storysCards); ?></b></h5>
                     <?php foreach ($storysCards as $story) : ?>
                         <div class="col">
                             <div class="card h-100">
