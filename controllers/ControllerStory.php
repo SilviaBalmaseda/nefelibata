@@ -165,7 +165,7 @@ class ControllerStory
             }
 
             // Se asigna los estados a la historia.
-            $this->daoEstado->asignarEstadoHistoria($historiaId, $estado);
+            $this->daoHistoria_estado->asignarEstadoHistoria($historiaId, $estado);
 
             $this->pdo->commit();
 
