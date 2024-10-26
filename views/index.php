@@ -23,7 +23,7 @@ if (isset($_GET['nombre'])) {
 }
 
 foreach ($storysCards as $story) {
-    echo ($story['Titulo']
+    echo $story['Titulo'];
 }
     
 ?>
