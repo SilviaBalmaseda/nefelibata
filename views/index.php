@@ -21,6 +21,10 @@ if (isset($_GET['searchStory'])) {
 if (isset($_GET['nombre'])) {
     $baseUrl .= 'nombre=' . urlencode($_GET['nombre']) . '&';
 }
+
+foreach ($storysCards as $valor) {
+    echo $valor;
+}
     
 ?>
 
@@ -78,7 +82,7 @@ if (isset($_GET['nombre'])) {
                                 <h5 class="card-title"><b><?php echo htmlspecialchars($story['Titulo']); ?></b></h5>
                                 <?php
                                 echo "<pre>";
-                                print_r($totalHistorias);
+                                print_r($totalPaginas);
                                 echo "</pre>";
                                 ?>
                                 <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo htmlspecialchars($story['Nombre']); ?></h6>
