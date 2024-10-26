@@ -75,7 +75,10 @@ class DaoHistoria
     // Seleccionar todos los datos de todas las historias y el autor.
     public function selecStoryCard()
     {
-        $stmt = $this->db->query("SELECT h.IdHistoria AS Id, h.Titulo, h.Sinopsis, h.Imagen, h.NumFavorito, u.Nombre 
+        // $stmt = $this->db->query("SELECT h.IdHistoria AS Id, h.Titulo, h.Sinopsis, h.Imagen, h.NumFavorito, u.Nombre 
+        //                             FROM historia h
+        //                             JOIN usuario u ON h.UsuarioId = u.IdUsuario");
+        $stmt = $this->db->query("SELECT DISTINCT h.IdHistoria AS Id, h.Titulo, h.Sinopsis, h.Imagen, h.NumFavorito, u.Nombre 
                                     FROM historia h
                                     JOIN usuario u ON h.UsuarioId = u.IdUsuario");
         return $stmt->fetchAll();
