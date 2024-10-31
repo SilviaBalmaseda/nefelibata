@@ -185,7 +185,6 @@ class ControllerAdmin
         $selecDelUsuario = $_POST['selecDelUsuario'];
 
         foreach ($selecDelUsuario as $idUser) {
-            $this->daoUsuario->deleteUser($idUser);
             // Restar favorito de la tabla historia si le ha dado el usuario.
             $idsFav = $this->daoFavorito->selectFavoriteUser($idUser);
             if ($idsFav) {
@@ -200,10 +199,13 @@ class ControllerAdmin
             $idHistorias = $this->daoHistoria->selectIdStotyUser($idUser);
             if ($idHistorias) {
                 foreach ($idHistorias as $historiaId) {
-                    $this->daoHistoria->deleteHistoria($historiaId);
                     $this->daoCapitulo->deleteCapStoryId($historiaId);
+                    $this->daoHistoria->deleteHistoria($historiaId);
                 }
             }
+
+            // Eliminar usuario.
+            $this->daoUsuario->deleteUser($idUser);
         }
 
         // Si no hay errores.
@@ -346,8 +348,10 @@ class ControllerAdmin
         $selecDelHistoria = $_POST['selecDelHistoria'];
 
         foreach ($selecDelHistoria as $historiaId) {
-            $this->daoHistoria->deleteHistoria($historiaId);
+            // Eliminar favoritos.
+            $this->daoFavorito->deleteFavoriteStory($historiaId);
             $this->daoCapitulo->deleteCapStoryId($historiaId);
+            $this->daoHistoria->deleteHistoria($historiaId);
         }
 
         // Si no hay errores.
