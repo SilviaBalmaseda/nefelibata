@@ -5,7 +5,6 @@ require_once __DIR__  .  '/controllers/Controller.php';
 require_once __DIR__  .  '/controllers/ControllerAdmin.php';
 require_once __DIR__  .  '/controllers/ControllerStory.php';
 
-
 $controller = new Controller($pdo);
 $controllerAdmin = new ControllerAdmin($pdo);
 $controllerStory = new ControllerStory($pdo);

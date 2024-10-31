@@ -10,11 +10,6 @@ include __DIR__  . '/../includes/functions.php';
 
 $user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] : null;
 
-// echo "CapituloActual: " . $capituloActual;
-// echo "<br>ff: " . $endCap;
-// echo "<br>hayAnterior: " . $hayAnterior;
-// echo "<br>haySiguiente: " . $haySiguiente;
-
 ?>
 
 <head>
