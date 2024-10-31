@@ -34,6 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Añadir un listener a cada botón(Favorito).
   buttonsFavoritos.forEach((button) => {
     button.addEventListener("click", function () {
+      // Si no está registrado y le da al botón de favorito.
+      if (this.classList.contains("noUser")) {
+        alert("Por favor, regístrate para marcar como favorito.");
+        return;
+      }
+
       // Obtener el id de la historia y si es favorito o no
       const historiaId = this.getAttribute("data-id");
       const esFavorito = this.getAttribute("data-es-favorito") === "true";

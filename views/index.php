@@ -92,7 +92,7 @@ if (isset($_GET['nombre'])) {
                                     </button>
 
                                     <button type="button" id="btnFavorito-<?php echo htmlspecialchars($story['Id']); ?>"
-                                        class="btn-favorito"
+                                        class="btn-favorito <?php echo ($user != null) ? '' : 'noUser'; ?>"
                                         data-id="<?php echo $story['Id']; ?>"
                                         data-es-favorito="<?php echo $story['esFavorito'] ? 'true' : 'false'; ?>">
                                         <i class="bi <?php echo $story['esFavorito'] ? 'bi-star-fill' : 'bi-star'; ?>"></i>
