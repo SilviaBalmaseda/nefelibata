@@ -165,7 +165,7 @@ footer {
 
 .modal-body hr {
     height: 0.5em;
-    background: rgb(0,0,42);
+    background: #00002A;
 }
 
 /* Estilos para leer historia */
@@ -252,4 +252,17 @@ body.page-body {
 
 .tamImg {
     max-width: 12.5em;
+}
+
+.userStyle {
+    border-radius: 1rem;
+    background-color: #00002A; 
+    color: #7fb1f4;
+    border: 2px solid red; 
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    margin: 0.5em;
+
+    /* background-color: #ffffff;  */
+    /* color: ##004AAD; */
 }

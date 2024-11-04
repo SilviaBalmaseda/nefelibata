@@ -37,7 +37,8 @@
             <div class="bloque5" id="bloque5">
                 <div id="sesion">
                     <?php if ($user != null): ?>
-                        <a class="nav-link" href="index.php?action=ajustes">Ajustes</a>
+                        <p class="userStyle"><?php echo htmlspecialchars($user); ?></p>
+                        <a class="nav-link textCenter" href="index.php?action=ajustes">Ajustes</a>
                     <?php else: ?>
                         <a class="nav-link" href="index.php?action=iniciarSesion">Iniciar Sesión</a>
                         <a class="nav-link" href="index.php?action=registrar">Registrarse</a>
