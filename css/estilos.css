@@ -11,6 +11,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    background-color: #F3F3F3; 
 }
 
 .header {
@@ -31,6 +32,20 @@ footer {
 
 .container{
     margin: 1em auto;
+}
+
+.createStyle {
+    background-color: white; 
+    border-radius: 1rem;
+}
+
+.inputWrite {
+    background-color: #def;
+    border: 1px solid #39c;
+}
+
+.inputWriteB {
+    border: 1px solid #39c;
 }
 
 .barraGenero {
@@ -256,13 +271,13 @@ body.page-body {
 
 .userStyle {
     border-radius: 1rem;
-    background-color: #00002A; 
-    color: #7fb1f4;
+    background-color: #ffffff; 
+    color: #004AAD;
     border: 2px solid red; 
     font-weight: bold;
     padding: 0.25em 0.5em;
     margin: 0.5em;
 
-    /* background-color: #ffffff;  */
-    /* color: ##004AAD; */
+    /* background-color: #00002A; 
+    color: #7fb1f4; */
 }
