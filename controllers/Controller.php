@@ -308,13 +308,6 @@ class Controller
             echo json_encode(['success' => false, 'errors' => ['Usuario no encontrado']]);
         }
 
-        // Verificar si el usuario es admin.
-        if ($nameUser === 'admin') {
-            $_SESSION['userAdmin'] = "TRUE";
-        } else {
-            $_SESSION['userAdmin'] = "FALSE";
-        }
-
         // Si no hay errores.
         echo json_encode(['success' => true, 'redirect' => 'index.php']);
     }

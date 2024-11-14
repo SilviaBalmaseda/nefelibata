@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   // console.log("main.js cargado");
 
+  // Verificación de la cookie.
+  if (!getCookie("cookiesAccepted")) {
+    // Mostrar mensaje cookies.
+    showCookiesMessage();
+  }
+
   // Obtener los formularios directamente.
   const fIniciarSesion = document.getElementById("fIniciarSesion");
   const fRegistrar = document.getElementById("fRegistrar");
@@ -177,6 +183,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Función para mostrar el mensaje de las cookies.
+  function showCookiesMessage() {
+    // Crear el HTML del banner con el overlay(capa superpuesta).
+    const cookieBanner = `
+        <div id="cookies-overlay" class="cookies-overlay"></div>
+        <div id="cookies-banner" class="cookies-banner alert alert-info alert-dismissible fade show">
+          <p> Este sitio web almacenda datos en cookies para activar su funcionalidad, entre las que se encuentra datos analíticos y 
+            personalización. Para poder utilizar este sitio, estás automáticamente aceptando que utilizamos cookies.
+					</p>
+          <button type="button" class="btn btn-primary" id="btnAcceptCookie">Aceptar</button>
+        </div>`;
+
+    // Insertar el banner la página.
+    document.body.insertAdjacentHTML("afterbegin", cookieBanner);
+
+    // Si acepta las cookies.
+    document
+      .getElementById("btnAcceptCookie")
+      .addEventListener("click", function () {
+        setCookie("cookiesAccepted", "true", 365); // Guardar la cookie para 1 año.
+        // Eliminar los elementos del banner y el overlay(capa superpuesta).
+        document.getElementById("cookies-banner").remove(); 
+        document.getElementById("cookies-overlay").remove(); 
+        window.location.href = window.location.href; // Recargar la página en la misma URL.
+      });
+  }
+
   // Función para manejar el submit(registrar o iniciarSesion).
   function submitForm(form) {
     clearValidationMessages(form);
@@ -283,27 +316,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     });
-  }
-
-  // Limpia los mensajes de error.
-  function clearValidationMessages(form) {
-    const errors = form.querySelectorAll(".error-message");
-    errors.forEach((error) => {
-      error.textContent = "";
-    });
-  }
-
-  // Limpia los estilos.
-  function clearValidationStyles(form) {
-    const fields = form.querySelectorAll("input, textarea, select");
-    fields.forEach((field) => {
-      field.classList.remove("input-error", "input-success");
-    });
-  }
-
-  // Devuelve la primera letra en mayúsculas.
-  function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   // valida si el string pasado es formato Email.

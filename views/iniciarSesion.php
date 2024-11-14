@@ -60,6 +60,7 @@ $user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] :
     showFooter();
     ?>
 
+    <script src="./js/util.js"></script>
     <script src="./js/main.js"></script>
 </body>
 

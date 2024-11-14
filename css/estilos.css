@@ -281,3 +281,32 @@ body.page-body {
     /* background-color: #00002A; 
     color: #7fb1f4; */
 }
+
+
+/* Overlay que bloquea el fondo */
+.cookies-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Color semitransparente */
+    z-index: 10; 
+}
+  
+/* Estilo del banner */
+.cookies-banner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding: 1.25em;
+    border-radius: 0.5em;
+    z-index: 100;
+}
+
+/* Para centrar el botón dentro del banner */
+#btnAcceptCookie {
+    display: block;
+    margin: 0 auto; 
+}
+
+  

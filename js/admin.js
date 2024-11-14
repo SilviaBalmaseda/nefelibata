@@ -350,25 +350,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-
-  // Limpiar mensajes de errores.
-  function clearValidationMessages(form) {
-    form
-      .querySelectorAll(".error-message")
-      .forEach((error) => (error.textContent = ""));
-  }
-
-  // Limpiar estilos.
-  function clearValidationStyles(form) {
-    form
-      .querySelectorAll("input, select")
-      .forEach((field) =>
-        field.classList.remove("input-error", "input-success")
-      );
-  }
-
-  // Devuelve la primera letra en mayúsculas.
-  function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
 });

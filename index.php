@@ -11,6 +11,7 @@ $controllerStory = new ControllerStory($pdo);
 
 $formType = $_POST['formType'] ?? null;
 $action = $_GET['action'] ?? 'index';
+$user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] : null;
 
 if ($formType) {
     switch ($formType) {
@@ -174,6 +175,13 @@ if ($formType) {
             break;
     }
 } else {
+    // Verificación de la cookie
+    if (!isset($_COOKIE['cookiesAccepted']) || $_COOKIE['cookiesAccepted'] !== 'true') {
+        // Redirigir a una vista que solicite la aceptación de cookies
+        $controller->index();
+        exit;
+    }
+
     switch ($action) {
         case 'fSearchStory':
             if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -186,22 +194,37 @@ if ($formType) {
             $controller->leerHistoria();
             break;
         case 'crearHistoria':
-            $controllerStory->showCrearHistoria();
+            if ($user != null) {
+                $controllerStory->showCrearHistoria();
+            } else {
+                $error = "userStory";
+                include 'views/pagError.php';
+            }
+            break;
+        case 'admin':
+            if ($user === 'admin') {
+                $controllerAdmin->admin();
+            } else {
+                $error = "userAdmin";
+                include 'views/pagError.php';
+            }
             break;
         case 'iniciarSesion':
             include 'views/iniciarSesion.php';
-            break;
-        case 'admin':
-            $controllerAdmin->admin();
             break;
         case 'registrar':
             include 'views/registrar.php';
             break;
         case 'ajustes':
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $controller->ajustes();
+            if ($user != null) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $controller->ajustes();
+                } else {
+                    include 'views/ajustes.php';
+                }
             } else {
-                include 'views/ajustes.php';
+                $error = "userStory";
+                include 'views/pagError.php';
             }
             break;
         default:
