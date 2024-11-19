@@ -51,7 +51,7 @@ $user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] :
                 <p id="errorClave" class="error-message"></p>
             </div>
             <p id="errorNameUserClave" class="error-message"></p>
-            <button type="submit" class="btn btnColor">Iniciar Sesion</button>
+            <button type="submit" class="btn btnColor">Iniciar Sesión</button>
         </form>
     </div>
 

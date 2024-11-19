@@ -81,7 +81,7 @@ $user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] :
                     <div class="card-text">
                         <form name="fDeleteUser" role="form" class="row g-3 formu" id="fDeleteUser" action="index.php?action=admin" method="POST" novalidate>
                             <label for="nameDelUser">
-                                <h3>Eliminar Usuario: </h3>
+                                <h3>Eliminar Usuarios: </h3>
                             </label>
 
                             <input type="text" class="form-control" id="nameDelUser" name="nameDelUser" placeholder="Nombre del Usuario" required>
@@ -107,7 +107,7 @@ $user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] :
                     <div class="card-text">
                         <form name="fDeleteGenero" role="form" class="row g-3 formu" id="fDeleteGenero" action="index.php?action=admin" method="POST" novalidate>
                             <label for="selecDelGen">
-                                <h3>Eliminar Generos: </h3>
+                                <h3>Eliminar Géneros: </h3>
                             </label>
 
                             <?php if (!empty($data['generos'])) : ?>
@@ -130,7 +130,7 @@ $user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] :
                             <p id="errorSelecDelGen" class="error-message"></p>
 
                             <button class="btn btnDelete" id="btnDeleteGenero" type="submit">
-                                <i class="bi bi-x-square btnAdmin"> ELIMINAR GENERO </i>
+                                <i class="bi bi-x-square btnAdmin"> ELIMINAR GÉNERO </i>
                             </button>
                         </form>
                     </div>
@@ -177,7 +177,7 @@ $user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] :
                     <div class="card-text">
                         <form name="fDeleteHistoria" role="form" class="row g-3 formu" id="fDeleteHistoria" action="index.php?action=admin" method="POST" novalidate>
                             <label for="nameDelHistoria">
-                                <h3>Eliminar Historia: </h3>
+                                <h3>Eliminar Historias: </h3>
                             </label>
 
                             <input type="text" class="form-control" id="nameDelHistoria" name="nameDelHistoria" placeholder="Nombre de la Historia" required>
@@ -208,7 +208,7 @@ $user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] :
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ¿Estás seguro de que deseas enviar el formulario?
+                    ¿Estás seguro de que deseas realizar está acción?
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

@@ -46,17 +46,17 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Obtener el id de la historia y si es favorito o no
+      // Obtener el id de la historia y si es favorito o no.
       const historiaId = this.getAttribute("data-id");
       const esFavorito = this.getAttribute("data-es-favorito") === "true";
 
-      // Crear un objeto FormData para enviar los datos
+      // Crear un objeto FormData para enviar los datos.
       const formData = new FormData();
       formData.append("formType", "favorito");
       formData.append("historiaId", historiaId);
       formData.append("esFavorito", esFavorito);
 
-      // Realizar la solicitud para cambiar el estado de favorito
+      // Realizar la solicitud para cambiar el estado de favorito.
       fetch("index.php", {
         method: "POST",
         body: formData,
@@ -71,18 +71,18 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then((data) => {
           if (data.success) {
-            // Actualizar visualmente el botón de favoritos
+            // Actualizar el botón de favoritos.
             const icon = this.querySelector("i");
             const numFavorito = parseInt(this.textContent.trim());
 
             if (esFavorito) {
-              // Si era favorito, ahora no lo es: cambiar icono y restar uno
+              // Si era favorito, ahora no lo es(cambiar icono y restar uno).
               icon.classList.remove("bi-star-fill");
               icon.classList.add("bi-star");
               this.setAttribute("data-es-favorito", "false");
               this.innerHTML = `<i class="bi bi-star"></i> ${numFavorito - 1}`;
             } else {
-              // Si no era favorito, ahora lo es: cambiar icono y sumar uno
+              // Si no era favorito, ahora lo es(cambiar icono y sumar uno).
               icon.classList.remove("bi-star");
               icon.classList.add("bi-star-fill");
               this.setAttribute("data-es-favorito", "true");
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("messageModalLabel").textContent =
         "Sinopsis de la historia";
 
-      // Inserta el estado, género y la sinopsis en el contenido del modal
+      // Inserta el estado, género y la sinopsis en el contenido del modal.
       let sinopsisContent = document.getElementById("sinopsisContent");
 
       sinopsis
@@ -149,9 +149,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             gens
               ? (generoContent.textContent = "Géneros: " + gens)
-              : (generoContent.textContent = "No se encontraron los géneros.");
+              : (generoContent.textContent = "No se encontraron los Géneros.");
           } else {
-            // Mostrar los errores del servidor sin sobrescribir los del cliente
+            // Mostrar los errores del servidor sin sobrescribir los del cliente.
             console.log(data.message);
           }
         })
@@ -177,8 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Le cambiamos los espacios por los guiones.
       const titulo = storyTitle.trim().replaceAll(" ", "-");
 
-      // Redirigir a la página de lectura de la historia con el título seleccionado(capítulo por defecto).
-      // window.location.href = `index.php?action=leer&titulo=${titulo}&capitulo=1`;
+      // Redirigir a la página de leer historia con el título seleccionado(capítulo por defecto).
       window.location.href = `index.php?action=leer&titulo=${titulo}`;
     });
   });
@@ -195,14 +194,14 @@ document.addEventListener("DOMContentLoaded", function () {
           <button type="button" class="btn btn-primary" id="btnAcceptCookie">Aceptar</button>
         </div>`;
 
-    // Insertar el banner la página.
+    // Insertar el banner en la página.
     document.body.insertAdjacentHTML("afterbegin", cookieBanner);
 
     // Si acepta las cookies.
     document
       .getElementById("btnAcceptCookie")
       .addEventListener("click", function () {
-        setCookie("cookiesAccepted", "true", 365); // Guardar la cookie para 1 año.
+        setCookie("cookiesAccepted", "true", 365); // Guardar por 1 año.
         // Eliminar los elementos del banner y el overlay(capa superpuesta).
         document.getElementById("cookies-banner").remove(); 
         document.getElementById("cookies-overlay").remove(); 
@@ -318,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // valida si el string pasado es formato Email.
+  // validar si el string pasado es formato Email.
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());

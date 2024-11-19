@@ -20,14 +20,14 @@ class DaoGenero
         return $result['genre'];
     }
 
-    // Crear un nuevo género.
+    // Inserta un nuevo género.
     public function createGenero($nameGenre)
     {
         $stmt = $this->db->prepare("INSERT INTO genero (Nombre) VALUES (?)");
         return $stmt->execute([$nameGenre]);
     }
 
-    // Seleccionar todos los datos de la tabla genero.
+    // Seleccionar todos los datos de la tabla género.
     public function selecGenero()
     {
         $stmt = $this->db->query("SELECT * FROM genero");

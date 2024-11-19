@@ -175,9 +175,9 @@ if ($formType) {
             break;
     }
 } else {
-    // Verificación de la cookie
+    // Verificación de la cookie.
     if (!isset($_COOKIE['cookiesAccepted']) || $_COOKIE['cookiesAccepted'] !== 'true') {
-        // Redirigir a una vista que solicite la aceptación de cookies
+        // Redirigir para la aceptación de cookies.
         $controller->index();
         exit;
     }

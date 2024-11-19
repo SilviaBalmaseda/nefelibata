@@ -11,14 +11,14 @@ class DaoFavorito
         $this->db = $db;
     }
 
-    // Crear favorito.
+    // Inserta favorito.
     public function createFavorite($usuarioId, $historiaId)
     {
         $stmt = $this->db->prepare("INSERT INTO favorito (UsuarioId, HistoriaId) VALUES (?, ?)");
         return $stmt->execute([$usuarioId, $historiaId]);
     }
 
-    // Devuelve true(1) si existe o false(0) si no.
+    // Devuelve true(mayor que 0) si existe o false(0) si no.
     public function esFavorito($usuarioId, $historiaId)
     {
         $stmt = $this->db->prepare("SELECT COUNT(*) FROM favorito WHERE UsuarioId = ? AND HistoriaId = ?");
@@ -48,7 +48,7 @@ class DaoFavorito
         return $stmt->execute([$storyId]);
     }
 
-    // Borrar favorito con esos ids pasados.
+    // Borrar favorito con ese id pasado.
     public function deleteFavorite($usuarioId, $historiaId)
     {
         $stmt = $this->db->prepare("DELETE FROM favorito WHERE UsuarioId = ? AND HistoriaId = ?");

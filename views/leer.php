@@ -34,12 +34,10 @@ $user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] :
 
     <div class="container mt-5">
         <div class="d-flex">
-            <!-- Título de la historia -->
             <div class="text-center maxAncho align-self-center">
                 <h1><?php echo htmlspecialchars($story['Titulo']); ?></h1>
             </div>
 
-            <!-- Imagen de la historia y el desplegable, alineados a la derecha -->
             <div class="d-flex ms-auto">
                 <div class="d-flex flex-column align-items-end">
                     <div class="text-center mb-2">
@@ -50,7 +48,7 @@ $user = isset($_SESSION['usuario']['nombre']) ? $_SESSION['usuario']['nombre'] :
                         <?php endif; ?>
                     </div>
 
-                    <!-- Desplegable al final del ancho -->
+                    <!-- Desplegable de los capítulos -->
                     <div class="dropdown chapter-dropdown">
                         <button class="btn btn-secondary dropdown-toggle chapter-select-btn" type="button" id="dropdownCapitulo" data-bs-toggle="dropdown" aria-expanded="false">
                             Capítulo: <?php echo htmlspecialchars($capituloActualTitulo); ?>

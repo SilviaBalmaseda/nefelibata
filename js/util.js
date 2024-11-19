@@ -1,6 +1,6 @@
 // console.log("util cargado");
 
-// Función para obtener una cookie por su nombre
+// Función para obtener una cookie por su nombre.
 function getCookie(name) {
   const nameEQ = name + "=";
   const ca = document.cookie.split(";");
@@ -12,7 +12,7 @@ function getCookie(name) {
   return null;
 }
 
-// Función para establecer una cookie
+// Función para establecer una cookie.
 function setCookie(name, value, days) {
   const d = new Date();
   d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
@@ -34,7 +34,7 @@ function clearValidationStyles(form) {
     .forEach((field) => field.classList.remove("input-error", "input-success"));
 }
 
-// Devuelve la primera letra en mayúsculas.
+// Devuelve la primera letra en mayúsculas del string pasado.
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }

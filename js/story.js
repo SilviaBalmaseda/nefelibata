@@ -53,19 +53,19 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append("idHistoria", idHistoria);
             formData.append("formType", "deleteStory");
 
-            // Hacemos el fetch para eliminar la historia
+            // Fetch para eliminar la historia.
             fetch("index.php", {
               method: "POST",
               body: formData,
             })
-              .then((response) => response.json()) // Parseamos directamente el JSON
+              .then((response) => response.json()) 
               .then((data) => {
                 if (data.success) {
                   resultMessage.textContent =
                     data.message || "Operación exitosa.";
                   successModal.show();
 
-                  // Redirigir después del éxito
+                  // Redirigir después del éxito.
                   document
                     .getElementById("closeSubmit")
                     .addEventListener("click", function () {
@@ -84,26 +84,25 @@ document.addEventListener("DOMContentLoaded", function () {
               });
           },
           { once: true }
-        ); // Asegurarnos de que solo escuchemos el clic una vez
+        ); 
       });
     });
   }
 
   // Formulario de edición.
   if (fEditStory) {
-    // Desplegable de capítulos
+    // Desplegable de capítulos.
     const capituloSelect = document.getElementById("capituloSelect");
 
     // Seleccionamos los botones de editar(para seleccionar la Historia).
     document.querySelectorAll(".btnEditStorys").forEach((button) => {
       button.addEventListener("click", function () {
-        const idHistoria = this.getAttribute("data-id"); // id de la historia seleccionada.
+        const idHistoria = this.getAttribute("data-id"); // Id de la historia seleccionada.
 
         const formData = new FormData();
-        formData.append("formType", "searchDataStory"); // Enviar el tipo de formulario (acción)
-        formData.append("idHistoria", idHistoria); // Enviar el id de la historia a editar
+        formData.append("formType", "searchDataStory"); // Enviar el tipo de formulario(acción).
+        formData.append("idHistoria", idHistoria); // Enviar el id de la historia a editar.
 
-        // Hacer fetch utilizando POST
         fetch("index.php", {
           method: "POST",
           body: formData,
@@ -111,13 +110,13 @@ document.addEventListener("DOMContentLoaded", function () {
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
-              // Asignar los valores a los inputs de texto y textarea
+              // Asignar los valores a los inputs de texto y textarea.
               document.getElementById("titulo").value = data.Titulo;
               document.getElementById("sinopsis").value = data.Sinopsis;
               document.getElementById("imagen").src =
                 "data:image/jpg;base64," + data.Imagen;
 
-              // Seleccionar el estado actual
+              // Seleccionar el estado actual.
               document.getElementById("estado").value = data.EstadoId;
 
               // Todos los géneros.
@@ -136,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
               }
 
-              // Mostrar el formulario (suponiendo que esté inicialmente oculto).
+              // Mostrar el formulario(suponiendo que esté inicialmente oculto).
               if (
                 deleteClass(
                   document.getElementById("fEditStoryContainer"),
@@ -148,8 +147,8 @@ document.addEventListener("DOMContentLoaded", function () {
               // Para el desplegable con los Capítulos.
               data.Capitulos.forEach((capitulo) => {
                 const option = document.createElement("option");
-                option.value = capitulo.IdCapitulo; // Aquí asumo que IdCapitulo es el identificador
-                option.textContent = `Capítulo ${capitulo.NumCapitulo}: ${capitulo.TituloCap}`; // Mostrar el título del capítulo
+                option.value = capitulo.IdCapitulo;
+                option.textContent = `Capítulo ${capitulo.NumCapitulo}: ${capitulo.TituloCap}`; // Mostrar el título del capítulo.
                 capituloSelect.appendChild(option);
               });
 
@@ -269,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Validar lado Cliente.
         if (validateClient([selectCap, historia])) return;
 
-        // Elimina posibles listeners anteriores para evitar duplicados
+        // Elimina posibles listeners anteriores para evitar duplicados.
         const confirmButton = document.getElementById("confirmSubmit");
         confirmButton.replaceWith(confirmButton.cloneNode(true));
 
@@ -287,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById("tituloCap").value
         );
 
-        // Realizar la edición(si acepta el modal.)
+        // Realizar la edición(si acepta el modal).
         confirmarModal(formData);
       });
 
@@ -304,7 +303,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Validar lado Cliente.
         if (validateClient([selectCap])) return;
 
-        // Elimina posibles listeners anteriores para evitar duplicados
+        // Elimina posibles listeners anteriores para evitar duplicados.
         const confirmButton = document.getElementById("confirmSubmit");
         confirmButton.replaceWith(confirmButton.cloneNode(true));
 
@@ -317,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         formData.append("formType", "deleteCap");
 
-        // Realizar la edición(si acepta el modal.)
+        // Realizar la edición(si acepta el modal).
         confirmarModal(formData);
       });
 
@@ -361,8 +360,6 @@ document.addEventListener("DOMContentLoaded", function () {
               throw new Error(data.errors || "Error inesperado del servidor");
             });
           }
-          // console.log(response.text());
-
           return response.json();
         })
         .then((data) => {
@@ -564,7 +561,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Servidor
+    // Servidor.
     fetch("index.php", {
       method: "POST",
       body: formData,

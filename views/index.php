@@ -45,7 +45,7 @@ if (isset($_GET['nombre'])) {
     ?>
 
     <div class="container">
-        <h1 class="textCenter">GENEROS</h1>
+        <h1 class="textCenter">GÉNEROS</h1>
         <!-- Mostrar los géneros -->
         <div>
             <ul class="barraGenero">

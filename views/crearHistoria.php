@@ -63,7 +63,7 @@ $operation = $_GET['operation'] ?? '';
 
                     <div class="mb-3">
                         <label for="tituloCap" class="form-label">
-                            <h4>Título Capítulo: </h4>
+                            <h4>Título del capítulo: </h4>
                         </label>
                         <input type="text" id="tituloCap" name="tituloCap" class="form-control inputWrite" placeholder="Título del capítulo">
                     </div>
@@ -72,23 +72,23 @@ $operation = $_GET['operation'] ?? '';
                         <label for="sinopsis" class="form-label">
                             <h4>Sinopsis:</h4>
                         </label>
-                        <textarea type="text" class="form-control inputWrite" name="sinopsis" id="sinopsis" placeholder="Escribe aquí la Sinopsis" rows="5"></textarea>
+                        <textarea type="text" class="form-control inputWrite" name="sinopsis" id="sinopsis" placeholder="Escribir aquí la sinopsis" rows="5"></textarea>
                     </div>
 
                     <div class="mb-3">
                         <label for="historia" class="form-label">
                             <h4>Historia:</h4>
                         </label>
-                        <textarea type="text" class="form-control inputWrite" name="historia" id="historia" placeholder="Escribir aquí la Historia" rows="10" required></textarea>
+                        <textarea type="text" class="form-control inputWrite" name="historia" id="historia" placeholder="Escribir aquí la historia" rows="10" required></textarea>
                         <p id="errorHistoria" class="error-message"></p>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-12 col-md-6 mb-3 mb-md-0">
                             <label class="form-label" for="estado">
-                                <h5>Selecciona un Estado:</h5>
+                                <h5>Selecciona un estado:</h5>
                             </label>
-                            <select class="form-select inputWriteB" name="estado" id="estado" aria-label="Etiqueta flotante de estado">
+                            <select class="form-select inputWriteB" name="estado" id="estado" aria-label="Etiqueta de estado">
                                 <?php foreach ($data['estados'] as $status) : ?>
                                     <option value="<?php echo htmlspecialchars($status['IdEstado']); ?>"><?php echo htmlspecialchars($status['Nombre']); ?></option>
                                 <?php endforeach; ?>
@@ -97,9 +97,9 @@ $operation = $_GET['operation'] ?? '';
 
                         <div class="col-12 col-md-6">
                             <label class="form-label" for="genero">
-                                <h5>Selecciona un Género:</h5>
+                                <h5>Selecciona uno o vários géneros:</h5>
                             </label>
-                            <select name="genero[]" id="generoSelect" class="form-select genSelect inputWriteB" multiple aria-label="Etiqueta flotante de género">
+                            <select name="genero[]" id="generoSelect" class="form-select genSelect inputWriteB" aria-label="Etiqueta de género" multiple>
                                 <?php foreach ($data['generos'] as $gen) : ?>
                                     <option value="<?php echo htmlspecialchars($gen['IdGenero']); ?>"><?php echo htmlspecialchars($gen['Nombre']); ?></option>
                                 <?php endforeach; ?>
@@ -161,13 +161,15 @@ $operation = $_GET['operation'] ?? '';
                             <label for="sinopsis" class="form-label">
                                 <h4>Sinopsis:</h4>
                             </label>
-                            <textarea type="text" class="form-control inputWrite" name="sinopsis" id="sinopsis" placeholder="Escribe aquí la Sinopsis" rows="5"></textarea>
+                            <textarea type="text" class="form-control inputWrite" name="sinopsis" id="sinopsis" placeholder="Escribir aquí la sinopsis" rows="5"></textarea>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-12 col-md-6 mb-3 mb-md-0">
-                                <label class="form-label" for="estado">Selecciona un Estado</label>
-                                <select class="form-select inputWriteB" name="estado" id="estado" aria-label="Etiqueta flotante de estado">
+                                <label class="form-label" for="estado">
+                                    <h5>Selecciona un estado:</h5>
+                                </label>
+                                <select class="form-select inputWriteB" name="estado" id="estado" aria-label="Etiqueta de estado">
                                     <?php foreach ($data['estados'] as $status) : ?>
                                         <option value="<?php echo htmlspecialchars($status['IdEstado']); ?>"><?php echo htmlspecialchars($status['Nombre']); ?></option>
                                     <?php endforeach; ?>
@@ -175,8 +177,10 @@ $operation = $_GET['operation'] ?? '';
                             </div>
 
                             <div class="col-12 col-md-6">
-                                <label class="form-label" for="genero">Selecciona un género</label>
-                                <select name="genero[]" id="generoSelect" class="form-select genSelect inputWriteB" multiple aria-label="Etiqueta flotante de género">
+                                <label class="form-label" for="genero">
+                                    <h5>Selecciona uno o vários géneros:</h5>
+                                </label>
+                                <select name="genero[]" id="generoSelect" class="form-select genSelect inputWriteB" aria-label="Etiqueta de género" multiple>
                                     <?php foreach ($data['generos'] as $gen) : ?>
                                         <option value="<?php echo htmlspecialchars($gen['IdGenero']); ?>"><?php echo htmlspecialchars($gen['Nombre']); ?></option>
                                     <?php endforeach; ?>
@@ -193,7 +197,7 @@ $operation = $_GET['operation'] ?? '';
                     <div id="sectionCap" class="mt-4 d-none">
                         <div class="mb-3">
                             <label for="capituloSelect" class="form-label">
-                                <h4>Selecciona un Capítulo:</h4>
+                                <h4>Selecciona un capítulo:</h4>
                             </label>
                             <select id="capituloSelect" name="capitulo" class="form-select inputWriteB">
                                 <option value="">Selecciona un capítulo</option>
@@ -213,14 +217,14 @@ $operation = $_GET['operation'] ?? '';
                         <form name="fEditCap" id="fEditCap" role="form" enctype="multipart/form-data" method="POST" novalidate>
                             <div class="mb-3">
                                 <label for="tituloCap" class="form-label">
-                                    <h4>Título Capítulo: </h4>
+                                    <h4>Título del capítulo: </h4>
                                 </label>
                                 <input type="text" id="tituloCap" name="tituloCap" class="form-control inputWrite" placeholder="Título del capítulo">
                             </div>
 
                             <div class="mb-3">
                                 <label for="historia" class="form-label">
-                                    <h4>Historia del Capítulo:</h4>
+                                    <h4>Historia del capítulo:</h4>
                                 </label>
                                 <textarea type="text" class="form-control inputWrite" name="historia" id="historia" placeholder="Historia del capítulo" rows="10" require></textarea>
                                 <p id="errorHistoria" class="error-message"></p>
@@ -275,7 +279,7 @@ $operation = $_GET['operation'] ?? '';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ¿Estás seguro de que deseas enviar el formulario?
+                    ¿Estás seguro de que deseas realizar está acción?
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

@@ -35,7 +35,7 @@ class ControllerStory
     // Devuelve un array con los datos necesarios para CrearHistoria.
     private function loadCreateStoryData()
     {
-        // Array con los nombres de los generos y estados que hay.
+        // Array con los nombres de los géneros y estados que hay.
         $generos = $this->daoGenero->selecGenero() ?: [];
         $estados = $this->daoEstado->selecEstado() ?: [];
 
@@ -132,7 +132,7 @@ class ControllerStory
 
             $autorId = $_SESSION['usuario']['Id'];
             $titulo = trim($_POST['titulo']);
-            // Comprueba si existe la imgagen y verifica que no hubo errores en la subida del archivo.
+            // Comprueba si existe la imagen y verifica que no hubo errores en la subida del archivo.
             if (isset($_FILES['portada']) && $_FILES['portada']['error'] === UPLOAD_ERR_OK) {
                 $archivoImag = $_FILES['portada']['tmp_name'];
                 $conte = file_get_contents($archivoImag);
@@ -151,12 +151,12 @@ class ControllerStory
             $numCapitulo = 1;
             $capituloId = $this->daoCapitulo->createCapitulo($historiaId, $numCapitulo, $tituloCap, $historia);
 
-            // Se asignan los generos a la historia.
+            // Se asignan los géneros a la historia.
             foreach ($genero as $gen) {
                 $this->daoHistoria_genero->asignarGeneroHistoria($historiaId, $gen);
             }
 
-            // Si ha seleccionado varios generos y el 'Ninguno', se elimina el 'Ninguno'.
+            // Si ha seleccionado varios géneros y el 'Ninguno', se elimina el 'Ninguno'.
             if (count($genero) > 1) {
                 // Si hay más géneros y han seleccionado 'Ninguno', se elimina.
                 if (in_array(1, $genero)) { 
@@ -170,7 +170,7 @@ class ControllerStory
             $this->pdo->commit();
 
             // Solo enviar la respuesta JSON al final, sin ninguna salida previa.
-            echo json_encode(['success' => true, 'redirect' => 'index.php?action=crearHistoria&operation=createStory', 'message' => 'La Historia ha sido creado con éxito.']);
+            echo json_encode(['success' => true, 'redirect' => 'index.php?action=crearHistoria&operation=createStory', 'message' => 'La Historia ha sido CREADA con éxito.']);
             exit;
         } catch (Exception $e) {
             $this->pdo->rollBack();
@@ -190,7 +190,7 @@ class ControllerStory
             $idHistoria = trim($_POST['idHistoria']);
 
             $titulo = trim($_POST['titulo']);
-            // Comprueba si existe la imgagen y verifica que no hubo errores en la subida del archivo.
+            // Comprueba si existe la imagen y verifica que no hubo errores en la subida del archivo.
             if (isset($_FILES['portada']) && $_FILES['portada']['error'] === UPLOAD_ERR_OK) {
                 $archivoImag = $_FILES['portada']['tmp_name'];
                 $conte = file_get_contents($archivoImag);
@@ -214,14 +214,14 @@ class ControllerStory
             $this->daoHistoria_estado->desasignarAllEstadoHistoria($idHistoria);
 
 
-            // Se asignan los generos a la historia.
+            // Se asignan los géneros a la historia.
             foreach ($genero as $gen) {
                 if ($this->daoHistoria_genero->checkHistoriaGenero($idHistoria, $gen) === 0) {
                     $this->daoHistoria_genero->asignarGeneroHistoria($idHistoria, $gen);
                 }
             }
 
-            // Si ha seleccionado varios generos y el 'Ninguno', se elimina el 'Ninguno'.
+            // Si ha seleccionado varios géneros y el 'Ninguno', se elimina el 'Ninguno'.
             if (count($genero) > 1) {
                 if (in_array(1, $genero)) {
                     $this->daoHistoria_genero->desasignarGeneroHistoria($idHistoria, 1);
@@ -404,7 +404,7 @@ class ControllerStory
 
         $this->daoCapitulo->createCapitulo($historiaId, $numCapitulo, $tituloCap, $historia);
 
-        echo json_encode(['success' => true, 'redirect' => 'index.php?action=crearHistoria&operation=editStory', 'message' => 'El capítulo se CREO correctamente.']);
+        echo json_encode(['success' => true, 'redirect' => 'index.php?action=crearHistoria&operation=editStory', 'message' => 'El capítulo se ha CREADO correctamente.']);
     }
 
     // Editar capítulo seleccionado.
@@ -419,7 +419,7 @@ class ControllerStory
 
         $this->daoCapitulo->updateCap($idCapitulo, $tituloCap, $historia);
 
-        echo json_encode(['success' => true, 'redirect' => 'index.php?action=crearHistoria&operation=editStory', 'message' => 'El capítulo se ACTUALIZO correctamente.']);
+        echo json_encode(['success' => true, 'redirect' => 'index.php?action=crearHistoria&operation=editStory', 'message' => 'El capítulo se ha ACTUALIZADO correctamente.']);
     }
 
     // Elimina el capítulo seleccionado.
@@ -431,6 +431,6 @@ class ControllerStory
 
         $this->daoCapitulo->deleteCap($idCapitulo);
 
-        echo json_encode(['success' => true, 'redirect' => 'index.php?action=crearHistoria&operation=editStory', 'message' => 'El capítulo se ELIMINO correctamente.']);
+        echo json_encode(['success' => true, 'redirect' => 'index.php?action=crearHistoria&operation=editStory', 'message' => 'El capítulo se ha ELIMINADO correctamente.']);
     }
 }

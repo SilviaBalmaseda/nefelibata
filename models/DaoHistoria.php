@@ -29,7 +29,7 @@ class DaoHistoria
         return $result['total'];
     }
 
-    // Crear Historia.
+    // Inserta Historia.
     public function createStory($titulo, $autor, $sinopsis, $imagen)
     {
         $stmt = $this->db->prepare("INSERT INTO historia (Titulo, UsuarioId, Sinopsis, Imagen) VALUES (?, ?, ?, ?)");
@@ -123,7 +123,7 @@ class DaoHistoria
         return $result['num'];
     }
 
-    // Devuelve el número de historias que ha buscado.
+    // Devuelve el número de historias con ese nombre o autor.
     public function selecNumSearchStory($name)
     {
         $stmt = $this->db->prepare("SELECT COUNT(DISTINCT h.IdHistoria) AS num 
@@ -145,7 +145,7 @@ class DaoHistoria
     // Restar 1 a favorito.
     public function subtractFavorite($historiaId)
     {
-        $stmt = $this->db->prepare("UPDATE historia SET NumFavorito = NumFavorito - 1 WHERE IdHistoria = ?");
+        $stmt = $this->db->prepare("UPDATE historia SET NumFavorito = (NumFavorito - 1) WHERE IdHistoria = ?");
         return $stmt->execute([$historiaId]);
     }
 
@@ -163,14 +163,9 @@ class DaoHistoria
         return $stmt->execute([$title, $sinopsis, $idHistoria]);
     }
 
-    // Actualizar la historia, restando 1 a favorito.
-    public function updateSubtractFav($idHistoria) {
-        $stmt = $this->db->prepare("UPDATE historia SET NumFavorito = (NumFavorito - 1) WHERE IdHistoria = ?");
-        return $stmt->execute([$idHistoria]);
-    }
-
     // Seleccionar los id de las historias con ese usuario.
-    public function selectIdStotyUser($usuarioId) {
+    public function selectIdStotyUser($usuarioId)
+    {
         $stmt = $this->db->prepare("SELECT IdHistoria FROM historia WHERE UsuarioId = ?");
         $stmt->execute([$usuarioId]);
         return $stmt->fetch();

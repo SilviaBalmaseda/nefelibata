@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("leer.js cargado");
+  // console.log("leer.js cargado");
 
   // Seleccionar el botón de capítulos y los elementos de la lista del desplegable.
   const dropdownButton = document.getElementById("dropdownCapitulo");

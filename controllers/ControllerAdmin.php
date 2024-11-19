@@ -33,7 +33,7 @@ class ControllerAdmin
     // Devuelve un array con los datos necesarios para el Admin.
     private function loadAdminData()
     {
-        // Array con los nombres de los generos y estados que hay.
+        // Array con los nombres de los géneros y estados que hay.
         $generos = $this->daoGenero->selecGenero() ?: [];
         $estados = $this->daoEstado->selecEstado() ?: [];
 
@@ -112,7 +112,7 @@ class ControllerAdmin
         $this->daoGenero->createGenero($nameGenero);
 
         // Si no hay errores.
-        echo json_encode(['success' => true, 'redirect' => 'index.php?action=admin', 'message' => 'El Género ha sido creado con éxito.']);
+        echo json_encode(['success' => true, 'redirect' => 'index.php?action=admin', 'message' => 'El Género ha sido CREADO con éxito.']);
     }
 
     // Función para crear un nuevo Estado.
@@ -144,7 +144,7 @@ class ControllerAdmin
             }
         }
 
-        // Si hay errores
+        // Si hay errores.
         if (!empty($errores)) {
             echo json_encode(['success' => false, 'errors' => $errores]);
             return;
@@ -164,7 +164,7 @@ class ControllerAdmin
 
         // Validar dato.
         if (empty($selecDelUsuario)) {
-            $errores['selecDelUsuario'] = "Tienes que seleccionar algún Usuario para eliminarlo.";
+            $errores['selecDelUsuario'] = "Tienes que seleccionar algún Usuario para eliminar lo.";
         }
 
         // Si hay errores.
@@ -189,7 +189,7 @@ class ControllerAdmin
             $idsFav = $this->daoFavorito->selectFavoriteUser($idUser);
             if ($idsFav) {
                 foreach ($idsFav as $idStory) {
-                    $this->daoHistoria->updateSubtractFav($idStory);
+                    $this->daoHistoria->subtractFavorite($idStory);
                 }
             }
             // Eliminar favoritos.
@@ -222,7 +222,7 @@ class ControllerAdmin
 
         // Validar dato.
         if (empty($selecDelGenero)) {
-            $errores['selecDelGen'] = "Tienes que seleccionar algún Género para eliminarlo.";
+            $errores['selecDelGen'] = "Tienes que seleccionar algún Género para eliminar lo.";
         }
 
         // Si hay errores.
@@ -246,7 +246,7 @@ class ControllerAdmin
 
         // Validar dato.
         if (empty($selecDelEstado)) {
-            $errores['selecDelStatus'] = "Tienes que seleccionar algún Estado para eliminarlo.";
+            $errores['selecDelStatus'] = "Tienes que seleccionar algún Estado para eliminar lo.";
         }
 
         // Si hay errores.
@@ -327,7 +327,7 @@ class ControllerAdmin
 
         // Validar dato.
         if (empty($selecDelHistoria)) {
-            $errores['selecDelHistoria'] = "Tienes que seleccionar alguna Historia para eliminarla.";
+            $errores['selecDelHistoria'] = "Tienes que seleccionar alguna Historia para eliminar la.";
         }
 
         // Si hay errores.

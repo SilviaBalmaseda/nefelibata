@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentForm;
   let formData;
 
-  // Evita duplicación de listeners agregando solo una vez el evento submit para cada formulario.
   if (fCreateGenre) {
     fCreateGenre.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -241,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  // Función para validar los datos en JavaScript para las busquedas.
+  // Función para validar los datos en JavaScript para las búsquedas.
   function validateSearch(form) {
     clearValidationMessages(form);
     clearValidationStyles(form);
@@ -312,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function () {
       field.style.display = "inline-block";
     });
 
-    // Insertarlo en la página.
+    // Insertar lo en la página.
     searchResults.insertAdjacentHTML("beforeend", deleteDropdown);
   }
 
@@ -328,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "search" + capitalize(errorField.id)
         );
 
-        // Si esta el estilo sin errores(verde), quitarlo.
+        // Si está el estilo sin errores(verde), quitar lo.
         if (errorField.classList.contains("input-success")) {
           errorField.classList.remove("input-success");
         }

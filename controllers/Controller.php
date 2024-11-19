@@ -100,7 +100,7 @@ class Controller
     // Muestra(pasa datos para) la interfaz de index(página principal).
     public function index()
     {
-        // Parámetros para paginación
+        // Parámetros para paginación.
         $generoName = isset($_GET['nombre']) ? $_GET['nombre'] : null;
 
         if ($generoName !== null) {
@@ -109,7 +109,7 @@ class Controller
             $generoId = null;
         }
 
-        // Obtener géneros, historias y paginación
+        // Obtener géneros, historias y paginación.
         $loadData = $this->loadData($generoId);
 
         // Pasa las variables a la vista.
@@ -226,7 +226,7 @@ class Controller
     }
 
     // INICIAR SESIÓN
-    // Función para validar los datos del formulario de iniciarSesión.
+    // Función para validar los datos del formulario de iniciarSesion.
     public function validarIniciarSesion($nameUser, $contra)
     {
         $errores = [];
@@ -238,7 +238,7 @@ class Controller
         } else if ($this->daoUsuario->checkSession($nameUser, $clave) < 1) {
             // Verificar si existe ese usuario.
             if (!($this->daoUsuario->checkUser($nameUser) > 0)) {
-                $errores['nameUserClave'] = "Usuario/Clave incorrectas. Vuelve a intentarlo.";
+                $errores['nameUserClave'] = "Usuario/Clave incorrectos. Vuelve a intentarlo.";
             }
 
             // Solo aplicamos el estilo de error a los campos.
@@ -247,7 +247,7 @@ class Controller
         }
 
         if (empty($contra)) {
-            $errores['clave'] = "La Contraseña es obligatorio.";
+            $errores['clave'] = "La Contraseña es obligatoria.";
         }
 
         return $errores;
@@ -266,7 +266,7 @@ class Controller
         }
 
         if (empty($clave)) {
-            $errores['clave'] = "La Contraseña es obligatorio.";
+            $errores['clave'] = "La Contraseña es obligatoria.";
         }
 
         if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -408,7 +408,7 @@ class Controller
 
         // Verificar si hay capítulos anterior y siguiente(paginación).
         $hayAnterior = ($capituloActual > $dataCap[0]['NumCapitulo']); // Primer capítulo.
-        $haySiguiente = ($capituloActual < end($dataCap)['NumCapitulo']); // Último capítulo
+        $haySiguiente = ($capituloActual < end($dataCap)['NumCapitulo']); // Último capítulo.
 
         include 'views/leer.php';
     }
