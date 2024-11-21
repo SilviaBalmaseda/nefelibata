@@ -193,6 +193,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 "error" + capitalize(errorField.id)
               );
               errorElement.textContent = data.errors[error];
+              // Si hay estilo de success eliminar lo y añadir el de error.
+              deleteClass(errorField, "input-success");
               errorField.classList.add("input-error");
             }
           });
@@ -328,9 +330,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         // Si está el estilo sin errores(verde), quitar lo.
-        if (errorField.classList.contains("input-success")) {
-          errorField.classList.remove("input-success");
-        }
+        deleteClass(errorField, "input-success");
 
         // Ocultar el botón y eliminar el desplegable.
         if (dropdown) {

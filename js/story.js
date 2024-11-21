@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
               method: "POST",
               body: formData,
             })
-              .then((response) => response.json()) 
+              .then((response) => response.json())
               .then((data) => {
                 if (data.success) {
                   resultMessage.textContent =
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
               });
           },
           { once: true }
-        ); 
+        );
       });
     });
   }
@@ -451,15 +451,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
     }
 
-    // Devuelve true o false si se la eliminado bien la clase pasada del elemento pasado.
-    function deleteClass(element, clase) {
-      if (element.classList.contains(clase)) {
-        element.classList.remove(clase);
-        return true;
-      }
-      return false;
-    }
-
     // Actualizar los datos generales de la historia.
     document
       .getElementById("btnUpdateHistoria")
@@ -608,10 +599,8 @@ document.addEventListener("DOMContentLoaded", function () {
           errorElement.textContent = serverErrors[key];
 
           if (inputElement !== null) {
-            if (inputElement.classList.contains("input-success")) {
-              inputElement.classList.remove("input-success");
+            if (deleteClass(inputElement, "input-success"))
               inputElement.classList.add("input-error");
-            }
           }
         }
       }

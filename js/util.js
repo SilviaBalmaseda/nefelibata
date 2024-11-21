@@ -38,3 +38,13 @@ function clearValidationStyles(form) {
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+// Devuelve true o false si se la eliminado bien la clase pasada del elemento pasado.
+function deleteClass(element, clase) {
+  let result = false;
+  if (element.classList.contains(clase)) {
+    element.classList.remove(clase);
+    result = true;
+  }
+  return result;
+}

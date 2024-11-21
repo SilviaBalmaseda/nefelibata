@@ -19,6 +19,14 @@ class DaoHistoria
         $result = $stmt->fetch();
         return $result['title'];
     }
+    
+    // Devuelve el número total de historias que hay.
+    public function checkNumStory()
+    {
+        $stmt = $this->db->query("SELECT COUNT(Titulo) AS num FROM historia");
+        $result = $stmt->fetch();
+        return $result['num'];
+    }
 
     // Devolver si ese título pertenece a la misma historia que el id(true=1/false=0).
     public function checkStoryId($title, $idHistoria)

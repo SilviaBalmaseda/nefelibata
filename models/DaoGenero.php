@@ -20,6 +20,14 @@ class DaoGenero
         return $result['genre'];
     }
 
+    // Devuelve el número total de géneros que hay.
+    public function checkNumGenero()
+    {
+        $stmt = $this->db->query("SELECT COUNT(Nombre) AS num FROM genero");
+        $result = $stmt->fetch();
+        return $result['num'];
+    }
+
     // Inserta un nuevo género.
     public function createGenero($nameGenre)
     {

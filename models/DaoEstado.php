@@ -20,6 +20,14 @@ class DaoEstado
         return $result['statu'];
     }
 
+    // Devuelve el número total de estados que hay.
+    public function checkNumEstado()
+    {
+        $stmt = $this->db->query("SELECT COUNT(Nombre) AS num FROM estado");
+        $result = $stmt->fetch();
+        return $result['num'];
+    }
+
     // Inserta un nuevo estado.
     public function createEstado($nameGenre)
     {

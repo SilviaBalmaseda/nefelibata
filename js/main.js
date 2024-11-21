@@ -77,13 +77,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (esFavorito) {
               // Si era favorito, ahora no lo es(cambiar icono y restar uno).
-              icon.classList.remove("bi-star-fill");
+              deleteClass(icon, "bi-star-fill");
               icon.classList.add("bi-star");
               this.setAttribute("data-es-favorito", "false");
               this.innerHTML = `<i class="bi bi-star"></i> ${numFavorito - 1}`;
             } else {
               // Si no era favorito, ahora lo es(cambiar icono y sumar uno).
-              icon.classList.remove("bi-star");
+              deleteClass(icon, "bi-star");
               icon.classList.add("bi-star-fill");
               this.setAttribute("data-es-favorito", "true");
               this.innerHTML = `<i class="bi bi-star-fill"></i> ${
@@ -203,8 +203,8 @@ document.addEventListener("DOMContentLoaded", function () {
       .addEventListener("click", function () {
         setCookie("cookiesAccepted", "true", 365); // Guardar por 1 año.
         // Eliminar los elementos del banner y el overlay(capa superpuesta).
-        document.getElementById("cookies-banner").remove(); 
-        document.getElementById("cookies-overlay").remove(); 
+        document.getElementById("cookies-banner").remove();
+        document.getElementById("cookies-overlay").remove();
         window.location.href = window.location.href; // Recargar la página en la misma URL.
       });
   }
@@ -307,10 +307,8 @@ document.addEventListener("DOMContentLoaded", function () {
           errorElement.textContent = serverErrors[key];
 
           if (inputElement !== null) {
-            if (inputElement.classList.contains("input-success")) {
-              inputElement.classList.remove("input-success");
+            if (deleteClass(inputElement, "input-success"))
               inputElement.classList.add("input-error");
-            }
           }
         }
       }

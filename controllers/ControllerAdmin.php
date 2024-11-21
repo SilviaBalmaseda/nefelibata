@@ -194,7 +194,7 @@ class ControllerAdmin
             }
             // Eliminar favoritos.
             $this->daoFavorito->deleteFavoriteUser($idUser);
-            
+
             // Eliminar historias y capítulos si el usuario tiene.
             $idHistorias = $this->daoHistoria->selectIdStotyUser($idUser);
             if ($idHistorias) {
@@ -220,9 +220,12 @@ class ControllerAdmin
         $selecDelGenero = isset($_POST['selecDelGen']) ? $_POST['selecDelGen'] : [];
         $errores = [];
 
-        // Validar dato.
+        // Validar datos.
         if (empty($selecDelGenero)) {
-            $errores['selecDelGen'] = "Tienes que seleccionar algún Género para eliminar lo.";
+            $errores['selecDelStatus'] = "Tienes que seleccionar algún Género para eliminar lo.";
+        } else if (($this->daoGenero->checkNumGenero() - 1) <= count($selecDelGenero)) {
+            // Si el número de géneros seleccionados es mayor o igual al total de géneros.
+            $errores['selecDelGen'] = "No puedes eliminar todos los géneros, mínimo tiene que quedar 1.";
         }
 
         // Si hay errores.
@@ -244,9 +247,12 @@ class ControllerAdmin
         $selecDelEstado = isset($_POST['selecDelStatus']) ? $_POST['selecDelStatus'] : [];
         $errores = [];
 
-        // Validar dato.
+        // Validar datos.
         if (empty($selecDelEstado)) {
             $errores['selecDelStatus'] = "Tienes que seleccionar algún Estado para eliminar lo.";
+        } else if ($this->daoEstado->checkNumEstado() <= count($selecDelEstado)) {
+            // Si el número de estados seleccionados es mayor o igual al total de estados.
+            $errores['selecDelStatus'] = "No puedes eliminar todos los estados, mínimo tiene que quedar 1.";
         }
 
         // Si hay errores.
@@ -266,12 +272,20 @@ class ControllerAdmin
 
         $selecDelGenero = $_POST['selecDelGen'];
 
+        $message = "Género(s) eliminado(s) con éxito.";
+
         foreach ($selecDelGenero as $idGenero) {
-            $this->daoGenero->deleteGenero($idGenero);
+            if (($this->daoGenero->checkNumGenero() - 1) > 1) {
+                $this->daoGenero->deleteGenero($idGenero);
+            } else {
+                // Si es el último género que queda.
+                $message = "Se han eliminado todos los géneros menos 1, obligatoriamente tiene que haber 1 género.";
+                break;
+            }
         }
 
         // Si no hay errores.
-        echo json_encode(['success' => true, 'redirect' => 'index.php?action=admin', 'message' => 'Género(s) eliminado(s) con éxito.']);
+        echo json_encode(['success' => true, 'redirect' => 'index.php?action=admin', 'message' => $message]);
     }
 
     // Elimina los estados seleccionados.
@@ -281,12 +295,20 @@ class ControllerAdmin
 
         $selecDelEstado = $_POST['selecDelStatus'];
 
+        $message = "Estado(s) eliminado(s) con éxito.";
+
         foreach ($selecDelEstado as $idEstado) {
-            $this->daoEstado->deleteEstado($idEstado);
+            if ($this->daoEstado->checkNumEstado() > 1) {
+                $this->daoEstado->deleteEstado($idEstado);
+            } else {
+                // Si es el último estado que queda.
+                $message = "Se han eliminado todos los estados menos 1, obligatoriamente tiene que haber 1 estado.";
+                break;
+            }
         }
 
         // Si no hay errores.
-        echo json_encode(['success' => true, 'redirect' => 'index.php?action=admin', 'message' => 'Estado(s) eliminado(s) con éxito.']);
+        echo json_encode(['success' => true, 'redirect' => 'index.php?action=admin', 'message' => $message]);
     }
 
     // Busca las historias y los usuarios con un nombre(parecido) al que ha pasado.
@@ -325,9 +347,12 @@ class ControllerAdmin
         $selecDelHistoria = isset($_POST['selecDelHistoria']) ? $_POST['selecDelHistoria'] : [];
         $errores = [];
 
-        // Validar dato.
+        // Validar datos.
         if (empty($selecDelHistoria)) {
             $errores['selecDelHistoria'] = "Tienes que seleccionar alguna Historia para eliminar la.";
+        } else if ($this->daoHistoria->checkNumStory() <= count($selecDelHistoria)) {
+            // Si el número de historias seleccionados es mayor o igual al total de historias.
+            $errores['selecDelHistoria'] = "No puedes eliminar todas las historias, mínimo tiene que quedar 1.";
         }
 
         // Si hay errores.
@@ -347,15 +372,23 @@ class ControllerAdmin
 
         $selecDelHistoria = $_POST['selecDelHistoria'];
 
+        $message = "Historia(s) eliminada(s) con éxito.";
+
         foreach ($selecDelHistoria as $historiaId) {
-            // Eliminar favoritos.
-            $this->daoFavorito->deleteFavoriteStory($historiaId);
-            $this->daoCapitulo->deleteCapStoryId($historiaId);
-            $this->daoHistoria->deleteHistoria($historiaId);
+            if ($this->daoHistoria->checkNumStory() > 1) {
+                // Eliminar favoritos.
+                $this->daoFavorito->deleteFavoriteStory($historiaId);
+                $this->daoCapitulo->deleteCapStoryId($historiaId);
+                $this->daoHistoria->deleteHistoria($historiaId);
+            } else {
+                // Si es la última historia que queda.
+                $message = "Se han eliminado todas las historias menos 1, obligatoriamente tiene que haber 1 historia.";
+                break;
+            }
         }
 
         // Si no hay errores.
-        echo json_encode(['success' => true, 'redirect' => 'index.php?action=admin', 'message' => 'Historia(s) eliminada(s) con éxito.']);
+        echo json_encode(['success' => true, 'redirect' => 'index.php?action=admin', 'message' => $message]);
         exit;
     }
 }
