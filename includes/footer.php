@@ -26,6 +26,9 @@
                     <h6 class="text-uppercase fw-bold mb-4">
                         <i class="fas fa-gem me-2"></i>Sobre Nosotros
                     </h6>
+                    <div>
+                        <p>Proyecto de Desarrollo de Aplicaciones Web 2024</p>
+                    </div>
                 </div>
 
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-3 textCenter" itemscope itemtype="https://schema.org/Place">
