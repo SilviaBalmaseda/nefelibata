@@ -26,7 +26,7 @@ footer {
 }
 
 .enlaceFooter{
-    color: white !important;
+    color: #ffffff !important;
     text-decoration: none !important;
 }
 
@@ -35,17 +35,17 @@ footer {
 }
 
 .createStyle {
-    background-color: white; 
+    background-color: #ffffff; 
     border-radius: 1rem;
 }
 
 .inputWrite {
-    background-color: #def;
-    border: 1px solid #39c;
+    background-color: #ddeeff;
+    border: 0.063em solid #3399cc;
 }
 
 .inputWriteB {
-    border: 1px solid #39c;
+    border: 0.063em solid #3399cc;
 }
 
 .barraGenero {
@@ -103,7 +103,7 @@ footer {
 }
 
 .btnDelete {
-    color: white;
+    color: #ffffff;
     background-color: #fe0000;
 }
 
@@ -131,7 +131,7 @@ footer {
 
 /* Para los mensajes de error de los formularios */
 .error-message {
-    color: red;
+    color: #ff0000;
     font-size: 1rem;
     margin-top: 0.30rem;
 }
@@ -144,12 +144,12 @@ footer {
 
 /* Estilo para borde rojo (error) */
 .input-error {
-    border-color: red !important;
+    border-color: #ff0000 !important;
 }
 
 /* Estilo para borde verde (correcto) */
 .input-success {
-    border-color: green !important;
+    border-color: #008000 !important;
 }
 
 /* Estilos MODAL */
@@ -202,7 +202,7 @@ body.page-body {
 }
 
 .story-container {
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 0.75em;
     padding: 1.25em;
     border-left: 0.4em solid #2c3e50; 
@@ -273,13 +273,10 @@ body.page-body {
     border-radius: 1rem;
     background-color: #ffffff; 
     color: #004AAD;
-    border: 2px solid red; 
+    border: 0.125em solid #ff0000; 
     font-weight: bold;
     padding: 0.25em 0.5em;
     margin: 0.5em;
-
-    /* background-color: #00002A; 
-    color: #7fb1f4; */
 }
 
 
