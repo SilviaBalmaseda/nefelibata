@@ -55,7 +55,7 @@ if (isset($_GET['nombre'])) {
                             <div>
                                 <?php if ($genero['Nombre'] != "Ninguno") : ?>
                                     <i class="bi bi-dash"></i>
-                                    <a href="index.php?action=selec&nombre=<?php echo htmlspecialchars($genero['Nombre']); ?>">
+                                    <a href="index.php?action=selec&nombre=<?php echo htmlspecialchars($genero['Nombre']); ?>" class="colorGenre">
                                         <?php echo htmlspecialchars($genero['Nombre']); ?>
                                     </a>
                                 <?php endif; ?>

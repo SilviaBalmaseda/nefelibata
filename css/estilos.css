@@ -64,6 +64,10 @@ footer {
     font-size: 2em;
 }
 
+.colorGenre {
+    color: #004AAD !important;
+}
+
 /* Para las imágenes */
 .peque {
     width: 3em;
